@@ -4,6 +4,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs
 const params = new URLSearchParams(location.search);
 const file = params.get('file');
 const requestedPage = Number(params.get('page')) || 1;
+const guidePage = params.get('guidePage') || requestedPage;
 const title = params.get('title') || 'Price guide';
 const error = document.querySelector('#error');
 document.querySelector('#guide-title').textContent = title;
@@ -21,6 +22,6 @@ async function render() {
   const canvas = document.querySelector('#page-canvas'); const context = canvas.getContext('2d');
   canvas.width = viewport.width; canvas.height = viewport.height;
   await page.render({ canvasContext: context, viewport }).promise;
-  document.querySelector('#page-label').textContent = `Page ${requestedPage} of ${pdf.numPages}`;
+  document.querySelector('#page-label').textContent = `Guide page ${guidePage} · PDF page ${requestedPage} of ${pdf.numPages}`;
 }
-render().catch(err => { error.hidden = false; error.textContent = `Unable to display this page. ${err.message}`; document.querySelector('#page-label').textContent = `Page ${requestedPage}`; });
+render().catch(err => { error.hidden = false; error.textContent = `Unable to display this page. ${err.message}`; document.querySelector('#page-label').textContent = `Guide page ${guidePage}`; });

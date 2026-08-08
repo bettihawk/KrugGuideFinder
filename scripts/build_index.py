@@ -12,6 +12,12 @@ from urllib.request import Request, urlopen
 from pypdf import PdfReader
 
 MODEL = re.compile(r"\b[A-Z]{1,7}[A-Z0-9]*(?:[-_ ][A-Z0-9.]+){1,}\b")
+PRINTED_PAGE = re.compile(r"\b(?:(\d{1,4})\s*\|\s*(?:USA|CANADA|CDN|GSA|VIZIENT)|(?:USA|CANADA|CDN|GSA|VIZIENT)\s*\|\s*(\d{1,4}))\b", re.I)
+
+def printed_page(text, pdf_page):
+    """Return a footer/header page label when a guide exposes one; otherwise PDF page."""
+    match = PRINTED_PAGE.search(text)
+    return int(next(value for value in match.groups() if value)) if match else pdf_page
 
 def download(url, path):
     request = Request(url, headers={"User-Agent": "KrugGuideFinder/0.1 (authorized Krug indexer)"})
@@ -30,8 +36,10 @@ def main():
         if not pdf.exists(): download(guide["pdf_url"], pdf)
         reader = PdfReader(str(pdf))
         for number, page in enumerate(reader.pages, start=1):
-            for model in set(MODEL.findall(page.extract_text() or "")):
-                records.append({"model": model, "guide": guide["guide"], "market": guide["market"], "page": number, "url": guide["pdf_url"]})
+            text = page.extract_text() or ""
+            guide_page = printed_page(text, number)
+            for model in set(MODEL.findall(text)):
+                records.append({"model": model, "guide": guide["guide"], "market": guide["market"], "guide_page": guide_page, "pdf_page": number, "url": guide["pdf_url"]})
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps({"updated": date.today().strftime("%B %-d, %Y"), "records": records}, indent=2) + "\n")
     print(f"Wrote {len(records)} locations to {args.output}")
