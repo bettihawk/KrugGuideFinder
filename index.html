@@ -7,10 +7,30 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main>
-      <header>
-        <img class="logo" src="assets/krug-logo.png" alt="Krug Furniture" />
+    <header class="site-header">
+      <a href="https://krug.ca/" class="site-logo"><img src="assets/krug-logo.png" alt="Krug Furniture" /></a>
+      <nav aria-label="Krug navigation">
+        <a href="https://krug.ca/">Products</a>
+        <a href="https://krug.ca/">Environments</a>
+        <a class="active" href="https://krug.ca/literature/#price-guides">Resources</a>
+        <a href="https://krug.ca/about-krug/">About Krug</a>
+        <a href="https://connect.krug.ca/">Krug Connect</a>
+      </nav>
+      <a class="site-search" href="https://krug.ca/">Search <span>⌕</span></a>
+    </header>
+    <div class="page-layout">
+      <aside class="resource-rail">
+        <p>Resources</p>
         <h1>Guide Finder</h1>
+        <a class="rail-active" href="index.html">Model Search</a>
+        <a href="https://krug.ca/literature/#price-guides">Price Guides</a>
+        <a href="https://krug.ca/literature/#cad-libraries">CAD &amp; Revit Libraries</a>
+        <a href="https://krug.ca/literature/#product-brochures">Product Brochures</a>
+      </aside>
+      <main>
+        <header class="content-header">
+          <p>Resources / Price Guides</p>
+          <h2>Guide Finder</h2>
         <p class="intro">Enter a model number to find the current public price guides and pages where it appears.</p>
       </header>
 
@@ -26,7 +46,8 @@
       <section id="status" class="status" aria-live="polite">Loading current guide index…</section>
       <section id="results" aria-label="Search results"></section>
     </main>
-    <footer>Public prototype · Guide locations only · Pricing is intentionally not shown yet.</footer>
+    </div>
+    <footer><img src="assets/krug-logo.png" alt="Krug Furniture" /> <span>Guide Finder · Public prototype · Guide locations only</span><a href="https://krug.ca/literature/#price-guides">Krug Price Guides ↗</a></footer>
     <script src="app.js?v=printed-pages-20260808"></script>
   </body>
 </html>
