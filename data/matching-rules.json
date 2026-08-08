@@ -1,0 +1,24 @@
+{
+  "aliases": {
+    "KAR226LCUNAD": {"targets":["KAR2-26LCUNAD","KAR2C-26LCUNAD"],"label":"Equivalent product-key entry","note":"The entered C denotes polished chrome; the current guide uses the current Karma series code."},
+    "KAR226LSUNAD": {"targets":["KAR2-26L_UNAD","KAR2C-26L_UNAD"],"label":"Equivalent product-key entry","note":"For this configuration, B or S frame colour resolves to the price-guide base model; C resolves to the polished-chrome model."},
+    "KAR226LBUNAD": {"targets":["KAR2-26L_UNAD","KAR2C-26L_UNAD"],"label":"Equivalent product-key entry","note":"For this configuration, B or S frame colour resolves to the price-guide base model; C resolves to the polished-chrome model."},
+    "FAE2G30SNCB": {"targets":["FAE2-G30SNC"],"label":"Equivalent product-key entry","note":"The trailing B denotes Beech wood and is normally omitted from the price-guide model."},
+    "FAE2P30CNCP": {"targets":["FAE2-P30CNC"],"label":"Equivalent product-key entry","note":"The trailing P denotes palette wood and is normally omitted from the price-guide model."},
+    "CRE2PCPFG21X3CLP": {"targets":["CRE2-PCFG21X3CLP"],"label":"Corrected product-key order","note":"The entered product-key segments were reordered to the guide convention; confirm the final configuration before quoting."},
+    "LEY31NUF": {"targets":["LEY-31NUF"],"label":"Equivalent formatting","note":"Hyphenation does not change the model."},
+    "JOR6APR21USSPR01014L": {"targets":["JOR6APR21UURSA00012L"],"label":"Related configuration — review required","note":"Do not use this as a price match. Confirm page-level upcharges for solid-surface cap, right patient-transfer arm, thermal comfort, push bar, and locking casters."},
+    "JOR7SL1SSC2": {"targets":["JOR7-SL1WOD2"],"label":"Related configuration — review required","note":"This configuration uses solid-surface arm caps. The final price varies by solid-surface cap grade and colour."},
+    "FAE2MGBH44CWAN1": {"targets":["FAE2M-GBH44CPAN1"],"label":"Related configuration — review required","note":"Wood arms are an upcharge and must be evaluated on the guide page."},
+    "IP3569RPL": {"targets":["IP3569LPL"],"label":"Price-equivalent handedness","note":"Right-handed model; it shares the left-handed model's price, but is not the same model code."}
+  },
+  "review_only": {
+    "FAE2MG24": "Several configuration endings are possible (including OPAS, OWAS, and CSAS); show candidate models only after the family key is known.",
+    "JORDANMULTISEAT": "Route to Jordan | Multiple Seating pages, not a single model match.",
+    "JOR8RCFUR11": "Push bar is included in the base price.",
+    "JOR8RCFUR12": "Push bar is not included in the base price.",
+    "AME6SL94SUWA3": "Round wood legs are part of the intended configuration.",
+    "FAE4441622": "Possible transposition to FAE4-44-22-16; never auto-correct without an explicit caution prompt.",
+    "JD1321N": "Distinct from JD1SS1321N. Never fuzzy-match these two codes."
+  }
+}

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Krug Guide Finder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">Krug Furniture</p>
+        <h1>Guide Finder</h1>
+        <p class="intro">Enter a model number to find the current public price guides and pages where it appears.</p>
+      </header>
+
+      <section class="search-panel" aria-label="Find a product model">
+        <label for="model">Model number</label>
+        <div class="search-row">
+          <input id="model" type="search" autocomplete="off" placeholder="e.g. KAR2-26L_UA_D" />
+          <button id="search" type="button">Find guides</button>
+        </div>
+        <p class="hint">Punctuation and capitalization do not matter. If no exact model is found, close configurations are shown separately.</p>
+      </section>
+
+      <section id="status" class="status" aria-live="polite">Loading current guide index…</section>
+      <section id="results" aria-label="Search results"></section>
+    </main>
+    <footer>Public prototype · Guide locations only · Pricing is intentionally not shown yet.</footer>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "updated": "August 8, 2026",
+  "records": [
+    {"model":"KAR2C-26L_U_D","guide":"Karma Commercial US Price Guide 2026","market":"US","page":8,"url":"https://krug.ca/downloads/priceguides/Krug_Karma_C_US_PriceGuide_2026.pdf"},
+    {"model":"KAR2C-26LCUNAD","guide":"Karma Commercial US Price Guide 2026","market":"US","page":8,"url":"https://krug.ca/downloads/priceguides/Krug_Karma_C_US_PriceGuide_2026.pdf"},
+    {"model":"KAR2C-26L_U_D","guide":"Seating US Price Guide 2026","market":"US","page":118,"url":"https://krug.ca/downloads/priceguides/Krug_Seating_US_PriceGuide_2026.pdf"},
+    {"model":"KAR2C-26L_UNAD","guide":"Karma Commercial US Price Guide 2026","market":"US","page":8,"url":"https://krug.ca/downloads/priceguides/Krug_Karma_C_US_PriceGuide_2026.pdf"},
+    {"model":"KAR2C-26L_WA_D","guide":"Karma Commercial US Price Guide 2026","market":"US","page":8,"url":"https://krug.ca/downloads/priceguides/Krug_Karma_C_US_PriceGuide_2026.pdf"}
+  ]
+}
