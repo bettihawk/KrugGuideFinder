@@ -18,8 +18,8 @@ button:hover { background:#00666c; }
 .result-group { margin-top:22px; }.result-group h2 { margin:0 0 8px; font-size:1.1rem; }.result-group > p { margin:0 0 14px; color:var(--muted); }
 .card { display:flex; justify-content:space-between; gap:24px; padding:20px; margin-top:10px; background:white; border:1px solid var(--line); }
 .card h3 { margin:0; font-size:1rem; }.model { margin:8px 0 0; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-weight:700; }.meta { margin:8px 0 0; color:var(--muted); font-size:.9rem; }
-.card a { align-self:center; white-space:nowrap; color:var(--teal); font-weight:750; text-decoration:none; }.card a:hover { text-decoration:underline; }
+.actions { align-self:center; display:grid; justify-items:end; gap:7px; }.card a { white-space:nowrap; color:var(--teal); font-weight:750; text-decoration:none; }.card a:hover { text-decoration:underline; }.source-link { color:var(--muted) !important; font-size:.82rem; font-weight:600 !important; }
 .badge { display:inline-block; margin-left:7px; padding:3px 6px; color:#745510; background:#fff4d9; font-size:.72rem; font-weight:750; text-transform:uppercase; letter-spacing:.04em; }
 .empty { padding:26px; border:1px dashed #b5c3c6; color:var(--muted); background:white; }
 footer { padding:20px 16px; border-top:1px solid var(--line); color:var(--muted); font-size:.8rem; text-align:center; }
-@media (max-width:580px) { main { padding-top:44px; }.search-row { display:block; } button { width:100%; height:52px; margin-top:10px; }.card { display:block; }.card a { display:inline-block; margin-top:15px; } }
+@media (max-width:580px) { main { padding-top:44px; }.search-row { display:block; } button { width:100%; height:52px; margin-top:10px; }.card { display:block; }.actions { justify-items:start; margin-top:15px; }.card a { display:inline-block; } }

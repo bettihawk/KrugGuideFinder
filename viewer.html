@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Krug Guide Finder — Page Viewer</title>
+    <link rel="stylesheet" href="viewer.css" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="brand"><img src="assets/krug-logo.png" alt="Krug Furniture" /></a>
+      <div><p id="guide-title">Price guide</p><strong id="page-label">Loading page…</strong></div>
+      <a id="original-pdf" target="_blank" rel="noopener">Open original PDF ↗</a>
+    </header>
+    <main>
+      <div id="error" hidden></div>
+      <div id="canvas-wrap"><canvas id="page-canvas"></canvas></div>
+    </main>
+    <script type="module" src="viewer.js"></script>
+  </body>
+</html>

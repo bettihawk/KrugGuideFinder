@@ -36,4 +36,4 @@ The script keeps source PDFs in `.guide-cache/` and writes `data/search-index.js
 
 The initial data contains a verified Karma Commercial US guide location (page 8) and the same model in the general Seating US guide (page 118). The product in the current guide is `KAR2C-26L_U_D`; an incomplete or legacy-style Karma entry will surface as a clearly labelled similar configuration rather than as an exact match.
 
-Each result links to its source PDF with the `#page=` fragment, which opens at the indexed physical PDF page in compatible browser PDF viewers.
+Each result opens an in-app PDF.js viewer at the indexed physical PDF page. This avoids browser PDF extensions that ignore the normal `#page=` fragment; a secondary Original PDF link remains available.

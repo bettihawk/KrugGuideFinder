@@ -13,7 +13,8 @@ const status = document.querySelector('#status'); const results = document.query
 function card(item, close) {
   const match = close ? `<span class="badge">Similar ${item.score}%</span>` : '';
   const pageUrl = `${item.url}${item.url.includes('#') ? '&' : '#'}page=${item.page}`;
-  return `<article class="card"><div><h3>${item.guide}</h3><p class="model">${item.model}${match}</p><p class="meta">${item.market} · Page ${item.page}</p></div><a href="${pageUrl}" target="_blank" rel="noopener">Open at page ${item.page} ↗</a></article>`;
+  const viewerUrl = `viewer.html?file=${encodeURIComponent(item.url)}&page=${item.page}&title=${encodeURIComponent(item.guide)}`;
+  return `<article class="card"><div><h3>${item.guide}</h3><p class="model">${item.model}${match}</p><p class="meta">${item.market} · Page ${item.page}</p></div><div class="actions"><a href="${viewerUrl}" target="_blank" rel="noopener">View page ${item.page} ↗</a><a class="source-link" href="${pageUrl}" target="_blank" rel="noopener">Original PDF</a></div></article>`;
 }
 function planFor(query) {
   const rule = rules.aliases[query];
