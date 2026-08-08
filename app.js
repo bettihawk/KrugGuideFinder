@@ -12,7 +12,8 @@ let records = []; let rules = { aliases: {} };
 const status = document.querySelector('#status'); const results = document.querySelector('#results'); const input = document.querySelector('#model');
 function card(item, close) {
   const match = close ? `<span class="badge">Similar ${item.score}%</span>` : '';
-  return `<article class="card"><div><h3>${item.guide}</h3><p class="model">${item.model}${match}</p><p class="meta">${item.market} · Page ${item.page}</p></div><a href="${item.url}" target="_blank" rel="noopener">Open guide ↗</a></article>`;
+  const pageUrl = `${item.url}${item.url.includes('#') ? '&' : '#'}page=${item.page}`;
+  return `<article class="card"><div><h3>${item.guide}</h3><p class="model">${item.model}${match}</p><p class="meta">${item.market} · Page ${item.page}</p></div><a href="${pageUrl}" target="_blank" rel="noopener">Open at page ${item.page} ↗</a></article>`;
 }
 function planFor(query) {
   const rule = rules.aliases[query];
