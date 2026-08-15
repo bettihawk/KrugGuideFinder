@@ -39,3 +39,5 @@ The initial data contains a verified Karma Commercial US guide location (page 8)
 Each result opens an in-app PDF.js viewer at the indexed physical PDF page. This avoids browser PDF extensions that ignore the normal `#page=` fragment; a secondary Original PDF link remains available.
 
 The index stores both `guide_page` (the printed page label in Krug's guide) and `pdf_page` (the physical page used by a PDF viewer). Results show the printed guide page; the viewer uses the physical PDF page behind the scenes and identifies both values in its header.
+
+`keyword_records` adds a separate, curated product-category index. A plain-language input such as `Faeron metal lounge chair` matches these terms and returns relevant model configurations with their guide locations. During full-guide ingestion, this category index should be reviewed by the Krug team rather than inferred solely from raw model codes.

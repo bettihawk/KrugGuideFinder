@@ -6,5 +6,10 @@
     {"model":"KAR2C-26L_U_D","guide":"Seating US Price Guide 2026","market":"US","guide_page":117,"pdf_page":118,"url":"https://krug.ca/downloads/priceguides/Krug_Seating_US_PriceGuide_2026.pdf"},
     {"model":"KAR2C-26L_UNAD","guide":"Karma Commercial US Price Guide 2026","market":"US","guide_page":8,"pdf_page":8,"url":"https://krug.ca/downloads/priceguides/Krug_Karma_C_US_PriceGuide_2026.pdf"},
     {"model":"KAR2C-26L_WA_D","guide":"Karma Commercial US Price Guide 2026","market":"US","guide_page":8,"pdf_page":8,"url":"https://krug.ca/downloads/priceguides/Krug_Karma_C_US_PriceGuide_2026.pdf"}
+  ],
+  "keyword_records": [
+    {"model":"FAE3-MAL1S","description":"Faeron Metal Armless Lounge — one-seat, silver metallic base","keywords":["faeron","metal","lounge","chair","armless"],"guide":"Faeron US Price Guide 2026","market":"US","guide_page":70,"pdf_page":70,"url":"https://krug.ca/downloads/priceguides/Krug_Faeron_Healthcare_US_PriceGuide_2026.pdf"},
+    {"model":"FAE3-ML1OPAS","description":"Faeron Metal Lounge — open-arm, one-seat, silver metallic","keywords":["faeron","metal","lounge","chair","arm","open"],"guide":"Faeron US Price Guide 2026","market":"US","guide_page":72,"pdf_page":72,"url":"https://krug.ca/downloads/priceguides/Krug_Faeron_Healthcare_US_PriceGuide_2026.pdf"},
+    {"model":"FAE3-MH1OPAS","description":"Faeron Metal High Back Lounge — open-arm, one-seat, silver metallic","keywords":["faeron","metal","lounge","chair","high","back","arm","open"],"guide":"Faeron US Price Guide 2026","market":"US","guide_page":73,"pdf_page":73,"url":"https://krug.ca/downloads/priceguides/Krug_Faeron_Healthcare_US_PriceGuide_2026.pdf"}
   ]
 }
