@@ -1,5 +1,5 @@
 {
-  "updated": "August 8, 2026",
+  "updated": "August 16, 2026",
   "records": [
     {"model":"KAR2C-26L_U_D","guide":"Karma Commercial US Price Guide 2026","market":"US","guide_page":8,"pdf_page":8,"url":"https://krug.ca/downloads/priceguides/Krug_Karma_C_US_PriceGuide_2026.pdf"},
     {"model":"KAR2C-26LCUNAD","guide":"Karma Commercial US Price Guide 2026","market":"US","guide_page":8,"pdf_page":8,"url":"https://krug.ca/downloads/priceguides/Krug_Karma_C_US_PriceGuide_2026.pdf"},
@@ -10,6 +10,36 @@
   "keyword_records": [
     {"model":"FAE3-MAL1S","description":"Faeron Metal Armless Lounge — one-seat, silver metallic base","keywords":["faeron","metal","lounge","chair","armless"],"guide":"Faeron US Price Guide 2026","market":"US","guide_page":70,"pdf_page":70,"url":"https://krug.ca/downloads/priceguides/Krug_Faeron_Healthcare_US_PriceGuide_2026.pdf"},
     {"model":"FAE3-ML1OPAS","description":"Faeron Metal Lounge — open-arm, one-seat, silver metallic","keywords":["faeron","metal","lounge","chair","arm","open"],"guide":"Faeron US Price Guide 2026","market":"US","guide_page":72,"pdf_page":72,"url":"https://krug.ca/downloads/priceguides/Krug_Faeron_Healthcare_US_PriceGuide_2026.pdf"},
-    {"model":"FAE3-MH1OPAS","description":"Faeron Metal High Back Lounge — open-arm, one-seat, silver metallic","keywords":["faeron","metal","lounge","chair","high","back","arm","open"],"guide":"Faeron US Price Guide 2026","market":"US","guide_page":73,"pdf_page":73,"url":"https://krug.ca/downloads/priceguides/Krug_Faeron_Healthcare_US_PriceGuide_2026.pdf"}
+    {"model":"FAE3-MH1OPAS","description":"Faeron Metal High Back Lounge — open-arm, one-seat, silver metallic","keywords":["faeron","metal","lounge","chair","high","back","arm","open"],"guide":"Faeron US Price Guide 2026","market":"US","guide_page":73,"pdf_page":73,"url":"https://krug.ca/downloads/priceguides/Krug_Faeron_Healthcare_US_PriceGuide_2026.pdf"},
+    {"model":"Ando | Tables — Rectangular Table, Bar Height","keywords":["ando","bar","table"],"guide":"Ando US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Ando_US_PriceGuide_2026.pdf"},
+    {"model":"Artemis Credenza","keywords":["artemis","credenza"],"guide":"Ando US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Ando_US_PriceGuide_2026.pdf"},
+    {"model":"Artemis Credenza","keywords":["artemis","credenza"],"guide":"Artemis US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Artemis_US_PriceGuide_2026.pdf"},
+    {"model":"Laminate Artemis Table","keywords":["laminate","artemis","table"],"guide":"Ando US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Ando_US_PriceGuide_2026.pdf"},
+    {"model":"ARTEMIS | Media Hub — Storage","description":"Storage finishes include Cherry, Maple, and Walnut","keywords":["storage","maple","artemis","artamis"],"guide":"Artemis US Price Guide 2026","market":"US","guide_page":105,"pdf_page":105,"url":"https://krug.ca/downloads/priceguides/Krug_Artemis_US_PriceGuide_2026.pdf"},
+    {"model":"Ascend Exam Recliner","keywords":["recliner"],"guide":"Ascend US Healthcare Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Ascend_US_Healthcare_PriceGuide_2026.pdf"},
+    {"model":"Jordan Active Patient Recliner","keywords":["recliner"],"guide":"Jordan US Healthcare Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Jordan_US_Healthcare_PriceGuide_2026.pdf"},
+    {"model":"Jordan Compact Recliner","keywords":["recliner"],"guide":"Jordan US Healthcare Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Jordan_US_Healthcare_PriceGuide_2026.pdf"},
+    {"model":"Jordan 3-Position Recliner","keywords":["recliner"],"guide":"Jordan US Healthcare Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Jordan_US_Healthcare_PriceGuide_2026.pdf"},
+    {"model":"Jordan Recliner Plus","keywords":["recliner"],"guide":"Jordan US Healthcare Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Jordan_US_Healthcare_PriceGuide_2026.pdf"},
+    {"model":"Jordan Sleep Recliner","keywords":["recliner"],"guide":"Jordan US Healthcare Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Jordan_US_Healthcare_PriceGuide_2026.pdf"},
+    {"model":"Jordan Glider","keywords":["recliner"],"guide":"Jordan US Healthcare Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Jordan_US_Healthcare_PriceGuide_2026.pdf"},
+    {"model":"Jordan Lounge Sleeper","keywords":["recliner"],"guide":"Jordan US Healthcare Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Jordan_US_Healthcare_PriceGuide_2026.pdf"},
+    {"model":"Ascend seating with flip-up or swing-away tablet","keywords":["chair","tablet"],"guide":"Ascend US Healthcare Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Ascend_US_Healthcare_PriceGuide_2026.pdf"},
+    {"model":"Jordan seating with flip-up or swing-away tablet","keywords":["chair","tablet"],"guide":"Jordan US Healthcare Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Jordan_US_Healthcare_PriceGuide_2026.pdf"},
+    {"model":"Libra seating with flip-up or swing-away tablet","keywords":["chair","tablet"],"guide":"Libra US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Libra_US_PriceGuide_2026.pdf"},
+    {"model":"Cressida seating with flip-up or swing-away tablet","keywords":["chair","tablet"],"guide":"Cressida US Price Guide 2026","market":"US","url":"https://krug.ca/download/cressida-us-priceguide-2024/"},
+    {"model":"Leyton seating with flip-up or swing-away tablet","keywords":["chair","tablet"],"guide":"Leyton US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Leyton_US_PriceGuide_2026.pdf"},
+    {"model":"Zola Modular seating with flip-up or swing-away tablet","keywords":["chair","tablet"],"guide":"Zola US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Zola_US_PriceGuide_2026.pdf"},
+    {"model":"Zola Privacy seating with flip-up or swing-away tablet","keywords":["chair","tablet"],"guide":"Zola US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Zola_US_PriceGuide_2026.pdf"},
+    {"model":"Ascend Trendelenburg seating","keywords":["trendelenburg","trendlinberg"],"guide":"Ascend US Healthcare Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Ascend_US_Healthcare_PriceGuide_2026.pdf"},
+    {"model":"Jordan Trendelenburg seating","keywords":["trendelenburg","trendlinberg"],"guide":"Jordan US Healthcare Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Jordan_US_Healthcare_PriceGuide_2026.pdf"},
+    {"model":"Nuvo Tables with power","keywords":["table","power"],"guide":"Nuvo US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Nuvo_US_PriceGuide_2026.pdf"},
+    {"model":"V2 Tables with power","keywords":["table","power"],"guide":"V2 US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_V2_US_PriceGuide_2026.pdf"},
+    {"model":"Ando Tables with power","keywords":["table","power"],"guide":"Ando US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Ando_US_PriceGuide_2026.pdf"},
+    {"model":"Revo Tables with power","keywords":["table","power"],"guide":"Revo US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Revo_US_PriceGuide_2026.pdf"},
+    {"model":"Gira Tables with power","keywords":["table","power"],"guide":"Gira US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Gira_US_PriceGuide_2026.pdf"},
+    {"model":"Millennium Conference Tables with power","keywords":["table","power"],"guide":"Millennium Conference US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Millennium_Conference_US_PriceGuide_2026.pdf"},
+    {"model":"Stratford Conference Tables with power","keywords":["table","power"],"guide":"Stratford Conference US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Stratford_Conference_US_PriceGuide_2026.pdf"},
+    {"model":"Virtu Conference Tables with power","keywords":["table","power"],"guide":"Virtu Conference US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Virtu_Conference_US_PriceGuide_2026.pdf"}
   ]
 }

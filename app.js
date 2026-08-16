@@ -14,14 +14,18 @@ function card(item, close) {
   const match = close ? `<span class="badge">Similar ${item.score}%</span>` : '';
   const guidePage = item.guide_page ?? item.page;
   const pdfPage = item.pdf_page ?? item.page;
+  const hasPage = Number.isFinite(Number(pdfPage));
   const pageUrl = `${item.url}${item.url.includes('#') ? '&' : '#'}page=${pdfPage}`;
   const viewerUrl = `viewer.html?file=${encodeURIComponent(item.url)}&page=${pdfPage}&guidePage=${encodeURIComponent(guidePage)}&title=${encodeURIComponent(item.guide)}`;
   const description = item.description ? `<p class="description">${item.description}</p>` : '';
-  return `<article class="card"><div><h3>${item.guide}</h3><p class="model">${item.model}${match}</p>${description}<p class="meta">${item.market} · Guide page ${guidePage}</p></div><div class="actions"><a href="${viewerUrl}" target="_blank" rel="noopener">View guide page ${guidePage} ↗</a><a class="source-link" href="${pageUrl}" target="_blank" rel="noopener">Original PDF</a></div></article>`;
+  const meta = hasPage ? `${item.market} · Guide page ${guidePage}` : `${item.market} · Product category`;
+  const actions = hasPage ? `<a href="${viewerUrl}" target="_blank" rel="noopener">View guide page ${guidePage} ↗</a><a class="source-link" href="${pageUrl}" target="_blank" rel="noopener">Original PDF</a>` : `<a href="${item.url}" target="_blank" rel="noopener">Open guide ↗</a>`;
+  return `<article class="card"><div><h3>${item.guide}</h3><p class="model">${item.model}${match}</p>${description}<p class="meta">${meta}</p></div><div class="actions">${actions}</div></article>`;
 }
 function keywordTokens(value) {
   const singular = { chairs: 'chair', tables: 'table', lounges: 'lounge', models: 'model' };
-  return value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().split(/\s+/).filter(Boolean).map(token => singular[token] || token);
+  const ignored = new Set(['a', 'an', 'and', 'for', 'of', 'the', 'with']);
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().split(/\s+/).filter(token => token && !ignored.has(token)).map(token => singular[token] || token);
 }
 function planFor(query) {
   const rule = rules.aliases[query];
@@ -36,12 +40,12 @@ function search() {
   const plan = planFor(query);
   const exact = records.filter(r => plan.candidates.includes(normalise(r.model)));
   const keywords = keywordTokens(input.value);
-  const keywordMatches = exact.length || keywords.length < 2 ? [] : keywordRecords.filter(record => keywords.every(token => record.keywords.includes(token)));
+  const keywordMatches = exact.length || !keywords.length ? [] : keywordRecords.filter(record => keywords.every(token => record.keywords.includes(token)));
   const similar = exact.length || keywordMatches.length || plan.reviewOnly ? [] : records.map(r => ({...r, score:score(query, r.model)})).filter(r => r.score >= 68).sort((a,b) => b.score-a.score).slice(0,12);
   const heading = plan.rule ? plan.rule.label : 'Exact matches';
   const note = plan.rule ? `<p>${plan.rule.note}</p>` : '';
   status.textContent = exact.length ? `${exact.length} guide location${exact.length === 1 ? '' : 's'} found.` : keywordMatches.length ? `${keywordMatches.length} product-category match${keywordMatches.length === 1 ? '' : 'es'} found.` : similar.length ? 'No exact model found. These configurations are the closest matches.' : 'No matching guide locations found.';
   results.innerHTML = exact.length ? `<div class="result-group"><h2>${heading}</h2>${note}${exact.map(r => card(r,!!plan.rule)).join('')}</div>` : keywordMatches.length ? `<div class="result-group"><h2>Product-category matches</h2><p>Matched on the product terms you entered. Select a guide page to see the listed model configurations.</p>${keywordMatches.map(r => card(r,false)).join('')}</div>` : similar.length ? `<div class="result-group"><h2>Similar configurations</h2><p>Confirm the product key before quoting or ordering.</p>${similar.map(r => card(r,true)).join('')}</div>` : plan.rule ? `<div class="empty"><strong>${plan.rule.label}.</strong> ${plan.rule.note}</div>` : `<div class="empty">Try entering a product family prefix, a product description, or check the model number. The public index is refreshed when new guides are published.</div>`;
 }
-Promise.all([fetch('data/search-index.json?v=keyword-search-20260815').then(r => r.json()), fetch('data/matching-rules.json?v=keyword-search-20260815').then(r => r.json())]).then(([data, loadedRules]) => { records = data.records; keywordRecords = data.keyword_records || []; rules = loadedRules; status.textContent = `Search ${records.length.toLocaleString()} indexed model locations and ${keywordRecords.length.toLocaleString()} product categories from ${data.updated}.`; }).catch(() => status.textContent = 'The search index could not be loaded.');
+Promise.all([fetch('data/search-index.json?v=keyword-rules-20260816').then(r => r.json()), fetch('data/matching-rules.json?v=keyword-rules-20260816').then(r => r.json())]).then(([data, loadedRules]) => { records = data.records; keywordRecords = data.keyword_records || []; rules = loadedRules; status.textContent = `Search ${records.length.toLocaleString()} indexed model locations and ${keywordRecords.length.toLocaleString()} product categories from ${data.updated}.`; }).catch(() => status.textContent = 'The search index could not be loaded.');
 document.querySelector('#search').addEventListener('click', search); input.addEventListener('keydown', e => { if (e.key === 'Enter') search(); });
