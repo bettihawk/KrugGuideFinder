@@ -1,0 +1,16 @@
+{
+  "updated": "August 16, 2026",
+  "guides": [
+    {"guide":"Casegoods Canadian Price Guide 2026","market":"Canada","url":"https://krug.ca/download/krug-casegoods-cdn-price-guide-2026/"},
+    {"guide":"Conference Canadian Price Guide 2026","market":"Canada","url":"https://krug.ca/download/conference-cdn-price-guide-2026/"},
+    {"guide":"Healthcare Canadian Price Guide 2026","market":"Canada","url":"https://krug.ca/download/healthcare-cdn-price-guide-2026/"},
+    {"guide":"Seating Canadian Price Guide 2026","market":"Canada","url":"https://krug.ca/download/seating-cdn-price-guide-2026/"},
+    {"guide":"Casegoods GSA Price Guide 2026","market":"GSA","url":"https://krug.ca/download/casegoods-gsa-price-guide-2026/"},
+    {"guide":"Conference GSA Price Guide 2026","market":"GSA","url":"https://krug.ca/download/conference-gsa-price-guide-2026/"},
+    {"guide":"Healthcare GSA Price Guide 2026","market":"GSA","url":"https://krug.ca/download/healthcare-gsa-price-guide-2026/"},
+    {"guide":"Seating GSA Price Guide 2026","market":"GSA","url":"https://krug.ca/download/seating-gsa-price-guide-2026/"},
+    {"guide":"Casegoods Vizient Price Guide 2026","market":"Vizient","url":"https://krug.ca/download/casegoods-price-guide-2026-vizient/"},
+    {"guide":"Conference Vizient Price Guide 2026","market":"Vizient","url":"https://krug.ca/download/conference-price-guide-2026-vizient/"},
+    {"guide":"Seating & Tables Vizient Price Guide 2026","market":"Vizient","url":"https://krug.ca/download/seating-tables-price-guide-2026-vizient/"}
+  ]
+}
