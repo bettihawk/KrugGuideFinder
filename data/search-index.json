@@ -43,6 +43,35 @@
     {"model":"Gira Tables with power","keywords":["table","power"],"guide":"Gira US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Gira_US_PriceGuide_2026.pdf"},
     {"model":"Millennium Conference Tables with power","keywords":["table","power"],"guide":"Millennium Conference US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Millennium_Conference_US_PriceGuide_2026.pdf"},
     {"model":"Stratford Conference Tables with power","keywords":["table","power"],"guide":"Stratford Conference US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Stratford_Conference_US_PriceGuide_2026.pdf"},
-    {"model":"Virtu Conference Tables with power","keywords":["table","power"],"guide":"Virtu Conference US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Virtu_Conference_US_PriceGuide_2026.pdf"}
+    {"model":"Virtu Conference Tables with power","keywords":["table","power"],"guide":"Virtu Conference US Price Guide 2026","market":"US","url":"https://krug.ca/downloads/priceguides/Krug_Virtu_Conference_US_PriceGuide_2026.pdf"},
+
+    {"model":"Ando | Tables — Rectangular Table, Bar Height","keywords":["ando","bar","table","power"],"guide":"Ando Canadian Price Guide 2026","market":"Canada","url":"https://krug.ca/download/ando-cdn-price-guide-2024/"},
+    {"model":"Artemis Credenza and Laminate Table","keywords":["artemis","credenza","laminate","table","storage","maple","artamis"],"guide":"Artemis Canadian Price Guide 2026","market":"Canada","url":"https://krug.ca/download/artemis-cdn-price-guides-2024/"},
+    {"model":"Nuvo Tables with power","keywords":["table","power"],"guide":"Nuvo Canadian Price Guide 2026","market":"Canada","url":"https://krug.ca/download/nuvo-cdn-price-guide-2024/"},
+    {"model":"V2 Tables with power","keywords":["table","power"],"guide":"V2 Canadian Price Guide 2026","market":"Canada","url":"https://krug.ca/download/v2-cdn-price-guide-2024/"},
+    {"model":"Revo Tables with power","keywords":["table","power"],"guide":"Revo Canadian Price Guide 2026","market":"Canada","url":"https://krug.ca/download/revo-cdn-price-guide-2024/"},
+    {"model":"Gira Tables with power","keywords":["table","power"],"guide":"Gira Canadian Price Guide 2026","market":"Canada","url":"https://krug.ca/download/gira-cdn-price-guide-2026/"},
+    {"model":"Millennium Conference Tables with power","keywords":["table","power"],"guide":"Millennium Conference Canadian Price Guide 2026","market":"Canada","url":"https://krug.ca/download/millennium-conference-cdn-price-guide-2024/"},
+    {"model":"Stratford Conference Tables with power","keywords":["table","power"],"guide":"Stratford Conference Canadian Price Guide 2026","market":"Canada","url":"https://krug.ca/download/stratford-conference-cdn-price-guide-2024/"},
+    {"model":"Virtu Conference Tables with power","keywords":["table","power"],"guide":"Virtu Conference Canadian Price Guide 2026","market":"Canada","url":"https://krug.ca/download/virtu-conference-cdn-price-guide/"},
+
+    {"model":"Ando | Tables — Rectangular Table, Bar Height","keywords":["ando","bar","table","power"],"guide":"Ando GSA Price Guide 2026","market":"GSA","url":"https://krug.ca/download/ando-gsa-price-guide/"},
+    {"model":"Artemis Credenza and Laminate Table","keywords":["artemis","credenza","laminate","table","storage","maple","artamis"],"guide":"Artemis GSA Price Guide 2026","market":"GSA","url":"https://krug.ca/download/artemis-casegoods-gsa-price-guide/"},
+    {"model":"Nuvo Tables with power","keywords":["table","power"],"guide":"Nuvo GSA Price Guide 2026","market":"GSA","url":"https://krug.ca/download/nuvo-gsa-price-guide/"},
+    {"model":"V2 Tables with power","keywords":["table","power"],"guide":"V2 GSA Price Guide 2026","market":"GSA","url":"https://krug.ca/download/v2-gsa-price-guide/"},
+    {"model":"Revo Tables with power","keywords":["table","power"],"guide":"Revo GSA Price Guide 2026","market":"GSA","url":"https://krug.ca/download/revo-gsa-price-guide/"},
+    {"model":"Gira Tables with power","keywords":["table","power"],"guide":"Gira GSA Price Guide 2026","market":"GSA","url":"https://krug.ca/download/gira-gsa-price-guide-2026/"},
+    {"model":"Millennium Conference Tables with power","keywords":["table","power"],"guide":"Millennium Conference GSA Price Guide 2026","market":"GSA","url":"https://krug.ca/download/millennium-conference-gsa-price-guide/"},
+    {"model":"Stratford Conference Tables with power","keywords":["table","power"],"guide":"Stratford Conference GSA Price Guide 2026","market":"GSA","url":"https://krug.ca/download/stratford-conference-gsa-price-guide/"},
+    {"model":"Virtu Conference Tables with power","keywords":["table","power"],"guide":"Virtu Conference GSA Price Guide 2026","market":"GSA","url":"https://krug.ca/download/virtu-conference-gsa-price-guide/"},
+
+    {"model":"Ando | Tables — Rectangular Table, Bar Height","keywords":["ando","bar","table","power"],"guide":"Ando Vizient Price Guide 2026","market":"Vizient","url":"https://krug.ca/download/ando-vizient/"},
+    {"model":"Artemis Credenza and Laminate Table","keywords":["artemis","credenza","laminate","table","storage","maple","artamis"],"guide":"Artemis Vizient Price Guide 2026","market":"Vizient","url":"https://krug.ca/download/artemis-price-guide-vizient/"},
+    {"model":"Nuvo Tables with power","keywords":["table","power"],"guide":"Nuvo Vizient Price Guide 2026","market":"Vizient","url":"https://krug.ca/download/nuvo-price-guide-vizient/"},
+    {"model":"V2 Tables with power","keywords":["table","power"],"guide":"V2 Vizient Price Guide 2026","market":"Vizient","url":"https://krug.ca/download/v2-price-guide-vizient/"},
+    {"model":"Revo Tables with power","keywords":["table","power"],"guide":"Revo Vizient Price Guide 2026","market":"Vizient","url":"https://krug.ca/download/revo-price-guide-vizient/"},
+    {"model":"Millennium Conference Tables with power","keywords":["table","power"],"guide":"Millennium Conference Vizient Price Guide 2026","market":"Vizient","url":"https://krug.ca/download/millennium-conference-priceguide-vizient/"},
+    {"model":"Stratford Conference Tables with power","keywords":["table","power"],"guide":"Stratford Conference Vizient Price Guide 2026","market":"Vizient","url":"https://krug.ca/download/stratford-conference-price-guide-vizient/"},
+    {"model":"Virtu Conference Tables with power","keywords":["table","power"],"guide":"Virtu Vizient Price Guide 2026","market":"Vizient","url":"https://krug.ca/download/virtu-price-guide-vizient/"}
   ]
 }
