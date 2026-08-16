@@ -20,7 +20,7 @@ const builtInKeywordRecords = [
   ['Stratford Conference Tables with power','Stratford Conference US Price Guide 2026','https://krug.ca/downloads/priceguides/Krug_Stratford_Conference_US_PriceGuide_2026.pdf'],
   ['Virtu Conference Tables with power','Virtu Conference US Price Guide 2026','https://krug.ca/downloads/priceguides/Krug_Virtu_Conference_US_PriceGuide_2026.pdf']
 ].map(([model, guide, url]) => ({ model, guide, url, market: 'US', keywords: ['table', 'power'] }));
-const status = document.querySelector('#status'); const results = document.querySelector('#results'); const input = document.querySelector('#model');
+const status = document.querySelector('#status'); const results = document.querySelector('#results'); const input = document.querySelector('#model'); const marketSelect = document.querySelector('#market');
 function card(item, close) {
   const match = close ? `<span class="badge">Similar ${item.score}%</span>` : '';
   const guidePage = item.guide_page ?? item.page;
@@ -47,16 +47,18 @@ function planFor(query) {
 }
 function search() {
   const query = normalise(input.value);
+  const selectedMarket = marketSelect.value;
+  const inMarket = item => selectedMarket === 'all' || item.market === selectedMarket || (selectedMarket === 'Canada' && ['Canadian', 'CA'].includes(item.market));
   if (!query) { results.innerHTML = ''; status.textContent = `Search ${records.length.toLocaleString()} indexed model locations.`; return; }
   const plan = planFor(query);
-  const exact = records.filter(r => plan.candidates.includes(normalise(r.model)));
+  const exact = records.filter(r => inMarket(r) && plan.candidates.includes(normalise(r.model)));
   const keywords = keywordTokens(input.value);
-  const keywordMatches = exact.length || !keywords.length ? [] : keywordRecords.filter(record => keywords.every(token => record.keywords.includes(token)));
-  const similar = exact.length || keywordMatches.length || plan.reviewOnly ? [] : records.map(r => ({...r, score:score(query, r.model)})).filter(r => r.score >= 68).sort((a,b) => b.score-a.score).slice(0,12);
+  const keywordMatches = exact.length || !keywords.length ? [] : keywordRecords.filter(record => inMarket(record) && keywords.every(token => record.keywords.includes(token)));
+  const similar = exact.length || keywordMatches.length || plan.reviewOnly ? [] : records.filter(inMarket).map(r => ({...r, score:score(query, r.model)})).filter(r => r.score >= 68).sort((a,b) => b.score-a.score).slice(0,12);
   const heading = plan.rule ? plan.rule.label : 'Exact matches';
   const note = plan.rule ? `<p>${plan.rule.note}</p>` : '';
   status.textContent = exact.length ? `${exact.length} guide location${exact.length === 1 ? '' : 's'} found.` : keywordMatches.length ? `${keywordMatches.length} product-category match${keywordMatches.length === 1 ? '' : 'es'} found.` : similar.length ? 'No exact model found. These configurations are the closest matches.' : 'No matching guide locations found.';
   results.innerHTML = exact.length ? `<div class="result-group"><h2>${heading}</h2>${note}${exact.map(r => card(r,!!plan.rule)).join('')}</div>` : keywordMatches.length ? `<div class="result-group"><h2>Product-category matches</h2><p>Matched on the product terms you entered. Select a guide page to see the listed model configurations.</p>${keywordMatches.map(r => card(r,false)).join('')}</div>` : similar.length ? `<div class="result-group"><h2>Similar configurations</h2><p>Confirm the product key before quoting or ordering.</p>${similar.map(r => card(r,true)).join('')}</div>` : plan.rule ? `<div class="empty"><strong>${plan.rule.label}.</strong> ${plan.rule.note}</div>` : `<div class="empty">Try entering a product family prefix, a product description, or check the model number. The public index is refreshed when new guides are published.</div>`;
 }
-Promise.all([fetch('data/search-index.json?v=keyword-rules-20260816c').then(r => r.json()), fetch('data/matching-rules.json?v=keyword-rules-20260816c').then(r => r.json())]).then(([data, loadedRules]) => { records = data.records; keywordRecords = [...new Map([...builtInKeywordRecords, ...(data.keyword_records || [])].map(item => [`${item.model}|${item.guide}`, item])).values()]; rules = loadedRules; status.textContent = `Search ${records.length.toLocaleString()} indexed model locations and ${keywordRecords.length.toLocaleString()} product categories from ${data.updated}.`; }).catch(() => { keywordRecords = builtInKeywordRecords; status.textContent = 'Product-category search is available. The full model index could not be loaded.'; });
+Promise.all([fetch('data/search-index.json?v=keyword-rules-20260816d').then(r => r.json()), fetch('data/matching-rules.json?v=keyword-rules-20260816d').then(r => r.json())]).then(([data, loadedRules]) => { records = data.records; keywordRecords = [...new Map([...builtInKeywordRecords, ...(data.keyword_records || [])].map(item => [`${item.model}|${item.guide}`, item])).values()]; rules = loadedRules; status.textContent = `Search ${records.length.toLocaleString()} indexed model locations and ${keywordRecords.length.toLocaleString()} product categories from ${data.updated}.`; }).catch(() => { keywordRecords = builtInKeywordRecords; status.textContent = 'Product-category search is available. The full model index could not be loaded.'; });
 document.querySelector('#search').addEventListener('click', search); input.addEventListener('keydown', e => { if (e.key === 'Enter') search(); });
