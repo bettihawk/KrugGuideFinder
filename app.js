@@ -9,6 +9,17 @@ const distance = (a, b) => {
 };
 const score = (query, model) => Math.round(100 * (1 - distance(query, normalise(model)) / Math.max(query.length, normalise(model).length)));
 let records = []; let keywordRecords = []; let rules = { aliases: {} };
+// Essential category matches live here too, so a stale JSON cache cannot disable search.
+const builtInKeywordRecords = [
+  ['Nuvo Tables with power','Nuvo US Price Guide 2026','https://krug.ca/downloads/priceguides/Krug_Nuvo_US_PriceGuide_2026.pdf'],
+  ['V2 Tables with power','V2 US Price Guide 2026','https://krug.ca/downloads/priceguides/Krug_V2_US_PriceGuide_2026.pdf'],
+  ['Ando Tables with power','Ando US Price Guide 2026','https://krug.ca/downloads/priceguides/Krug_Ando_US_PriceGuide_2026.pdf'],
+  ['Revo Tables with power','Revo US Price Guide 2026','https://krug.ca/downloads/priceguides/Krug_Revo_US_PriceGuide_2026.pdf'],
+  ['Gira Tables with power','Gira US Price Guide 2026','https://krug.ca/downloads/priceguides/Krug_Gira_US_PriceGuide_2026.pdf'],
+  ['Millennium Conference Tables with power','Millennium Conference US Price Guide 2026','https://krug.ca/downloads/priceguides/Krug_Millennium_Conference_US_PriceGuide_2026.pdf'],
+  ['Stratford Conference Tables with power','Stratford Conference US Price Guide 2026','https://krug.ca/downloads/priceguides/Krug_Stratford_Conference_US_PriceGuide_2026.pdf'],
+  ['Virtu Conference Tables with power','Virtu Conference US Price Guide 2026','https://krug.ca/downloads/priceguides/Krug_Virtu_Conference_US_PriceGuide_2026.pdf']
+].map(([model, guide, url]) => ({ model, guide, url, market: 'US', keywords: ['table', 'power'] }));
 const status = document.querySelector('#status'); const results = document.querySelector('#results'); const input = document.querySelector('#model');
 function card(item, close) {
   const match = close ? `<span class="badge">Similar ${item.score}%</span>` : '';
@@ -47,5 +58,5 @@ function search() {
   status.textContent = exact.length ? `${exact.length} guide location${exact.length === 1 ? '' : 's'} found.` : keywordMatches.length ? `${keywordMatches.length} product-category match${keywordMatches.length === 1 ? '' : 'es'} found.` : similar.length ? 'No exact model found. These configurations are the closest matches.' : 'No matching guide locations found.';
   results.innerHTML = exact.length ? `<div class="result-group"><h2>${heading}</h2>${note}${exact.map(r => card(r,!!plan.rule)).join('')}</div>` : keywordMatches.length ? `<div class="result-group"><h2>Product-category matches</h2><p>Matched on the product terms you entered. Select a guide page to see the listed model configurations.</p>${keywordMatches.map(r => card(r,false)).join('')}</div>` : similar.length ? `<div class="result-group"><h2>Similar configurations</h2><p>Confirm the product key before quoting or ordering.</p>${similar.map(r => card(r,true)).join('')}</div>` : plan.rule ? `<div class="empty"><strong>${plan.rule.label}.</strong> ${plan.rule.note}</div>` : `<div class="empty">Try entering a product family prefix, a product description, or check the model number. The public index is refreshed when new guides are published.</div>`;
 }
-Promise.all([fetch('data/search-index.json?v=keyword-rules-20260816b').then(r => r.json()), fetch('data/matching-rules.json?v=keyword-rules-20260816b').then(r => r.json())]).then(([data, loadedRules]) => { records = data.records; keywordRecords = data.keyword_records || []; rules = loadedRules; status.textContent = `Search ${records.length.toLocaleString()} indexed model locations and ${keywordRecords.length.toLocaleString()} product categories from ${data.updated}.`; }).catch(() => status.textContent = 'The search index could not be loaded.');
+Promise.all([fetch('data/search-index.json?v=keyword-rules-20260816c').then(r => r.json()), fetch('data/matching-rules.json?v=keyword-rules-20260816c').then(r => r.json())]).then(([data, loadedRules]) => { records = data.records; keywordRecords = [...new Map([...builtInKeywordRecords, ...(data.keyword_records || [])].map(item => [`${item.model}|${item.guide}`, item])).values()]; rules = loadedRules; status.textContent = `Search ${records.length.toLocaleString()} indexed model locations and ${keywordRecords.length.toLocaleString()} product categories from ${data.updated}.`; }).catch(() => { keywordRecords = builtInKeywordRecords; status.textContent = 'Product-category search is available. The full model index could not be loaded.'; });
 document.querySelector('#search').addEventListener('click', search); input.addEventListener('keydown', e => { if (e.key === 'Enter') search(); });
