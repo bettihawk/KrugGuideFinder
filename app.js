@@ -58,13 +58,14 @@ function card(item, close) {
 }
 function keywordTokens(value) {
   const singular = { chairs: 'chair', tables: 'table', lounges: 'lounge', models: 'model' };
+  const spelling = { behavioural: 'behavioral', grey: 'gray' };
   const ignored = new Set(['a', 'an', 'and', 'for', 'of', 'the', 'with']);
-  return value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().split(/\s+/).filter(token => token && !ignored.has(token)).map(token => singular[token] || token);
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().split(/\s+/).filter(token => token && !ignored.has(token)).map(token => spelling[singular[token] || token] || singular[token] || token);
 }
 function catalogueRecord(guide) {
   const ignored = new Set(['price', 'guide', '2026', 'us', 'cdn', 'gsa', 'vizient', 'healthcare', 'commercial', 'behavioral', 'behavioural']);
   const keywords = keywordTokens(guide.guide).filter(token => !ignored.has(token));
-  if (/\bBH\b/i.test(guide.guide)) keywords.push('behavioral', 'behavioural', 'health');
+  if (/\bBH\b/i.test(guide.guide)) keywords.push('behavioral', 'health');
   return { ...guide, model: guide.guide, description: 'Current public Krug price guide', keywords };
 }
 function planFor(query) {
