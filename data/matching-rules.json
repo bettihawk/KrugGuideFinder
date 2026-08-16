@@ -1,5 +1,6 @@
 {
   "aliases": {
+    "KAR218": {"targets":["KAR2-18.5"],"label":"Karma Guest Seating — 18.5-inch size","note":"The compact entry resolves to the 18.5-inch Karma Guest Seating model family."},
     "KAR226LCUNAD": {"targets":["KAR2-26LCUNAD","KAR2C-26LCUNAD"],"label":"Equivalent product-key entry","note":"The entered C denotes polished chrome; the current guide uses the current Karma series code."},
     "KAR226LSUNAD": {"targets":["KAR2-26L_UNAD","KAR2C-26L_UNAD"],"label":"Equivalent product-key entry","note":"For this configuration, B or S frame colour resolves to the price-guide base model; C resolves to the polished-chrome model."},
     "KAR226LBUNAD": {"targets":["KAR2-26L_UNAD","KAR2C-26L_UNAD"],"label":"Equivalent product-key entry","note":"For this configuration, B or S frame colour resolves to the price-guide base model; C resolves to the polished-chrome model."},
