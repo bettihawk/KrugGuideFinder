@@ -7,6 +7,15 @@ const distance = (a, b) => {
   }
   return row[b.length];
 };
+const keywordDistance = (a, b) => {
+  const rows = Array.from({ length: a.length + 1 }, (_, i) => Array.from({ length: b.length + 1 }, (_, j) => i === 0 ? j : j === 0 ? i : 0));
+  for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++) {
+    const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+    rows[i][j] = Math.min(rows[i - 1][j] + 1, rows[i][j - 1] + 1, rows[i - 1][j - 1] + cost);
+    if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) rows[i][j] = Math.min(rows[i][j], rows[i - 2][j - 2] + 1);
+  }
+  return rows[a.length][b.length];
+};
 const score = (query, model) => Math.round(100 * (1 - distance(query, normalise(model)) / Math.max(query.length, normalise(model).length)));
 let records = []; let keywordRecords = []; let rules = { aliases: {} };
 // Essential category matches live here too, so a stale JSON cache cannot disable search.
@@ -68,6 +77,14 @@ function catalogueRecord(guide) {
   if (/\bBH\b/i.test(guide.guide)) keywords.push('behavioral', 'health');
   return { ...guide, model: guide.guide, description: 'Current public Krug price guide', keywords };
 }
+function correctKeywordTypos(tokens) {
+  const vocabulary = new Set(keywordRecords.flatMap(record => record.keywords || []).filter(word => word.length >= 5));
+  return tokens.map(token => {
+    if (token.length < 5 || /\d/.test(token) || vocabulary.has(token)) return token;
+    const matches = [...vocabulary].filter(word => word[0] === token[0] && keywordDistance(token, word) <= 1);
+    return matches.length === 1 ? matches[0] : token;
+  });
+}
 function planFor(query) {
   const rule = rules.aliases[query];
   const reviewNote = rules.review_only?.[query];
@@ -84,7 +101,7 @@ function search() {
   if (!query) { results.innerHTML = ''; status.textContent = `Search ${records.length.toLocaleString()} indexed model locations.`; return; }
   const plan = planFor(query);
   const exact = records.filter(r => inMarket(r) && plan.candidates.includes(normalise(r.model)));
-  let keywords = keywordTokens(input.value);
+  let keywords = correctKeywordTypos(keywordTokens(input.value));
   const keywordMatches = exact.length || !keywords.length ? [] : keywordRecords.filter(record => inMarket(record) && keywords.every(token => record.keywords.includes(token)));
   const similar = exact.length || keywordMatches.length || plan.reviewOnly ? [] : records.filter(inMarket).map(r => ({...r, score:score(query, r.model)})).filter(r => r.score >= 68).sort((a,b) => b.score-a.score).slice(0,12);
   const heading = plan.rule ? plan.rule.label : 'Exact matches';
@@ -93,5 +110,5 @@ function search() {
   results.innerHTML = exact.length ? `<div class="result-group"><h2>${heading}</h2>${note}${exact.map(r => card(r,!!plan.rule)).join('')}</div>` : keywordMatches.length ? `<div class="result-group"><h2>Product-category matches</h2><p>Matched on the product terms you entered. Select a guide page to see the listed model configurations.</p>${keywordMatches.map(r => card(r,false)).join('')}</div>` : similar.length ? `<div class="result-group"><h2>Similar configurations</h2><p>Confirm the product key before quoting or ordering.</p>${similar.map(r => card(r,true)).join('')}</div>` : plan.rule ? `<div class="empty"><strong>${plan.rule.label}.</strong> ${plan.rule.note}</div>` : selectedMarket === 'all' ? `<div class="empty">Try entering a product family prefix, a product description, or check the model number. The public index is refreshed when new guides are published.</div>` : `<div class="empty">There are no indexed ${marketLabel} guide matches for this search yet. Select “Search all guides” to see matches in every market.</div>`;
 }
 searchButton.disabled = true;
-Promise.all([fetch('data/search-index.json?v=karma-218-pages-20260816', { cache: 'no-store' }).then(r => r.json()), fetch('data/matching-rules.json?v=karma-218-pages-20260816', { cache: 'no-store' }).then(r => r.json()), fetch('data/guide-manifest.json?v=karma-218-pages-20260816', { cache: 'no-store' }).then(r => r.json())]).then(([data, loadedRules, catalogue]) => { records = data.records; keywordRecords = [...new Map([...builtInKeywordRecords, ...(data.keyword_records || []), ...(catalogue.guides || []).map(catalogueRecord)].map(item => [`${item.model}|${item.guide}`, item])).values()]; rules = loadedRules; indexReady = true; searchButton.disabled = false; status.textContent = `Search ${records.length.toLocaleString()} indexed model locations and ${(catalogue.guides || []).length.toLocaleString()} current public guides from ${data.updated}.`; if (input.value.trim()) search(); }).catch(() => { keywordRecords = builtInKeywordRecords; indexReady = true; searchButton.disabled = false; status.textContent = 'Product-category search is available. The full model index could not be loaded.'; if (input.value.trim()) search(); });
+Promise.all([fetch('data/search-index.json?v=typo-tolerance-20260816', { cache: 'no-store' }).then(r => r.json()), fetch('data/matching-rules.json?v=typo-tolerance-20260816', { cache: 'no-store' }).then(r => r.json()), fetch('data/guide-manifest.json?v=typo-tolerance-20260816', { cache: 'no-store' }).then(r => r.json())]).then(([data, loadedRules, catalogue]) => { records = data.records; keywordRecords = [...new Map([...builtInKeywordRecords, ...(data.keyword_records || []), ...(catalogue.guides || []).map(catalogueRecord)].map(item => [`${item.model}|${item.guide}`, item])).values()]; rules = loadedRules; indexReady = true; searchButton.disabled = false; status.textContent = `Search ${records.length.toLocaleString()} indexed model locations and ${(catalogue.guides || []).length.toLocaleString()} current public guides from ${data.updated}.`; if (input.value.trim()) search(); }).catch(() => { keywordRecords = builtInKeywordRecords; indexReady = true; searchButton.disabled = false; status.textContent = 'Product-category search is available. The full model index could not be loaded.'; if (input.value.trim()) search(); });
 document.querySelector('#search').addEventListener('click', search); input.addEventListener('keydown', e => { if (e.key === 'Enter') search(); });
