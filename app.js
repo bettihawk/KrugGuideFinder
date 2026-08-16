@@ -19,7 +19,30 @@ const builtInKeywordRecords = [
   ['Millennium Conference Tables with power','Millennium Conference US Price Guide 2026','https://krug.ca/downloads/priceguides/Krug_Millennium_Conference_US_PriceGuide_2026.pdf'],
   ['Stratford Conference Tables with power','Stratford Conference US Price Guide 2026','https://krug.ca/downloads/priceguides/Krug_Stratford_Conference_US_PriceGuide_2026.pdf'],
   ['Virtu Conference Tables with power','Virtu Conference US Price Guide 2026','https://krug.ca/downloads/priceguides/Krug_Virtu_Conference_US_PriceGuide_2026.pdf']
-].map(([model, guide, url]) => ({ model, guide, url, market: 'US', keywords: ['table', 'power'] }));
+  ,['Ando Tables with power','Ando Canadian Price Guide 2026','https://krug.ca/download/ando-cdn-price-guide-2024/','Canada']
+  ,['Nuvo Tables with power','Nuvo Canadian Price Guide 2026','https://krug.ca/download/nuvo-cdn-price-guide-2024/','Canada']
+  ,['V2 Tables with power','V2 Canadian Price Guide 2026','https://krug.ca/download/v2-cdn-price-guide-2024/','Canada']
+  ,['Revo Tables with power','Revo Canadian Price Guide 2026','https://krug.ca/download/revo-cdn-price-guide-2024/','Canada']
+  ,['Gira Tables with power','Gira Canadian Price Guide 2026','https://krug.ca/download/gira-cdn-price-guide-2026/','Canada']
+  ,['Millennium Conference Tables with power','Millennium Conference Canadian Price Guide 2026','https://krug.ca/download/millennium-conference-cdn-price-guide-2024/','Canada']
+  ,['Stratford Conference Tables with power','Stratford Conference Canadian Price Guide 2026','https://krug.ca/download/stratford-conference-cdn-price-guide-2024/','Canada']
+  ,['Virtu Conference Tables with power','Virtu Conference Canadian Price Guide 2026','https://krug.ca/download/virtu-conference-cdn-price-guide/','Canada']
+  ,['Ando Tables with power','Ando GSA Price Guide 2026','https://krug.ca/download/ando-gsa-price-guide/','GSA']
+  ,['Nuvo Tables with power','Nuvo GSA Price Guide 2026','https://krug.ca/download/nuvo-gsa-price-guide/','GSA']
+  ,['V2 Tables with power','V2 GSA Price Guide 2026','https://krug.ca/download/v2-gsa-price-guide/','GSA']
+  ,['Revo Tables with power','Revo GSA Price Guide 2026','https://krug.ca/download/revo-gsa-price-guide/','GSA']
+  ,['Gira Tables with power','Gira GSA Price Guide 2026','https://krug.ca/download/gira-gsa-price-guide-2026/','GSA']
+  ,['Millennium Conference Tables with power','Millennium Conference GSA Price Guide 2026','https://krug.ca/download/millennium-conference-gsa-price-guide/','GSA']
+  ,['Stratford Conference Tables with power','Stratford Conference GSA Price Guide 2026','https://krug.ca/download/stratford-conference-gsa-price-guide/','GSA']
+  ,['Virtu Conference Tables with power','Virtu Conference GSA Price Guide 2026','https://krug.ca/download/virtu-conference-gsa-price-guide/','GSA']
+  ,['Ando Tables with power','Ando Vizient Price Guide 2026','https://krug.ca/download/ando-vizient/','Vizient']
+  ,['Nuvo Tables with power','Nuvo Vizient Price Guide 2026','https://krug.ca/download/nuvo-price-guide-vizient/','Vizient']
+  ,['V2 Tables with power','V2 Vizient Price Guide 2026','https://krug.ca/download/v2-price-guide-vizient/','Vizient']
+  ,['Revo Tables with power','Revo Vizient Price Guide 2026','https://krug.ca/download/revo-price-guide-vizient/','Vizient']
+  ,['Millennium Conference Tables with power','Millennium Conference Vizient Price Guide 2026','https://krug.ca/download/millennium-conference-priceguide-vizient/','Vizient']
+  ,['Stratford Conference Tables with power','Stratford Conference Vizient Price Guide 2026','https://krug.ca/download/stratford-conference-price-guide-vizient/','Vizient']
+  ,['Virtu Conference Tables with power','Virtu Vizient Price Guide 2026','https://krug.ca/download/virtu-price-guide-vizient/','Vizient']
+].map(([model, guide, url, market = 'US']) => ({ model, guide, url, market, keywords: ['table', 'power'] }));
 const status = document.querySelector('#status'); const results = document.querySelector('#results'); const input = document.querySelector('#model'); const marketSelect = document.querySelector('#market');
 function card(item, close) {
   const match = close ? `<span class="badge">Similar ${item.score}%</span>` : '';
@@ -61,5 +84,5 @@ function search() {
   status.textContent = exact.length ? `${exact.length} guide location${exact.length === 1 ? '' : 's'} found.` : keywordMatches.length ? `${keywordMatches.length} product-category match${keywordMatches.length === 1 ? '' : 'es'} found.` : similar.length ? 'No exact model found. These configurations are the closest matches.' : selectedMarket === 'all' ? 'No matching guide locations found.' : `No ${marketLabel} guide locations found.`;
   results.innerHTML = exact.length ? `<div class="result-group"><h2>${heading}</h2>${note}${exact.map(r => card(r,!!plan.rule)).join('')}</div>` : keywordMatches.length ? `<div class="result-group"><h2>Product-category matches</h2><p>Matched on the product terms you entered. Select a guide page to see the listed model configurations.</p>${keywordMatches.map(r => card(r,false)).join('')}</div>` : similar.length ? `<div class="result-group"><h2>Similar configurations</h2><p>Confirm the product key before quoting or ordering.</p>${similar.map(r => card(r,true)).join('')}</div>` : plan.rule ? `<div class="empty"><strong>${plan.rule.label}.</strong> ${plan.rule.note}</div>` : selectedMarket === 'all' ? `<div class="empty">Try entering a product family prefix, a product description, or check the model number. The public index is refreshed when new guides are published.</div>` : `<div class="empty">There are no indexed ${marketLabel} guide matches for this search yet. Select “Search all guides” to see matches in every market.</div>`;
 }
-Promise.all([fetch('data/search-index.json?v=market-batch-20260816').then(r => r.json()), fetch('data/matching-rules.json?v=market-batch-20260816').then(r => r.json())]).then(([data, loadedRules]) => { records = data.records; keywordRecords = [...new Map([...builtInKeywordRecords, ...(data.keyword_records || [])].map(item => [`${item.model}|${item.guide}`, item])).values()]; rules = loadedRules; status.textContent = `Search ${records.length.toLocaleString()} indexed model locations and ${keywordRecords.length.toLocaleString()} product categories from ${data.updated}.`; }).catch(() => { keywordRecords = builtInKeywordRecords; status.textContent = 'Product-category search is available. The full model index could not be loaded.'; });
+Promise.all([fetch('data/search-index.json?v=table-filter-fix-20260816', { cache: 'no-store' }).then(r => r.json()), fetch('data/matching-rules.json?v=table-filter-fix-20260816', { cache: 'no-store' }).then(r => r.json())]).then(([data, loadedRules]) => { records = data.records; keywordRecords = [...new Map([...builtInKeywordRecords, ...(data.keyword_records || [])].map(item => [`${item.model}|${item.guide}`, item])).values()]; rules = loadedRules; status.textContent = `Search ${records.length.toLocaleString()} indexed model locations and ${keywordRecords.length.toLocaleString()} product categories from ${data.updated}.`; }).catch(() => { keywordRecords = builtInKeywordRecords; status.textContent = 'Product-category search is available. The full model index could not be loaded.'; });
 document.querySelector('#search').addEventListener('click', search); input.addEventListener('keydown', e => { if (e.key === 'Enter') search(); });
