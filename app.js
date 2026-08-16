@@ -58,7 +58,7 @@ function card(item, close) {
 }
 function keywordTokens(value) {
   const singular = { chairs: 'chair', tables: 'table', lounges: 'lounge', models: 'model' };
-  const spelling = { behavioural: 'behavioral', grey: 'gray' };
+  const spelling = { behavioural: 'behavioral', grey: 'gray', milenium: 'millennium', millenium: 'millennium' };
   const ignored = new Set(['a', 'an', 'and', 'for', 'of', 'the', 'with']);
   return value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().split(/\s+/).filter(token => token && !ignored.has(token)).map(token => spelling[singular[token] || token] || singular[token] || token);
 }
