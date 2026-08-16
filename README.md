@@ -14,6 +14,14 @@ Open `http://localhost:8000`.
 
 ## Populate the full catalogue
 
+Refresh the current public guide list before an indexing run:
+
+```sh
+python3 scripts/sync_public_catalog.py
+```
+
+This writes `data/guide-manifest.json`, which is the live, market-labelled catalogue used by the site. Run it whenever Krug updates the Literature page; review any added/removed links, then run the PDF model-page extraction below for the guides that have changed.
+
 Create `guide-manifest.json` containing the public PDF URLs:
 
 ```json

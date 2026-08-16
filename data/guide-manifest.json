@@ -1,0 +1,1396 @@
+{
+  "source_url": "https://krug.ca/literature/#price-guides",
+  "last_verified": "2026-08-16",
+  "guides": [
+    {
+      "guide": "Casegoods US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/casegoods-us-price-guide-2026/"
+    },
+    {
+      "guide": "Casegoods CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/krug-casegoods-cdn-price-guide-2026/"
+    },
+    {
+      "guide": "Casegoods GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/casegoods-gsa-price-guide-2026/"
+    },
+    {
+      "guide": "Casegoods Price Guide 2026 – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/casegoods-price-guide-2026-vizient/"
+    },
+    {
+      "guide": "Conference US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/conference-us-price-guides-2026/"
+    },
+    {
+      "guide": "Conference CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/conference-cdn-price-guide-2026/"
+    },
+    {
+      "guide": "Conference GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/conference-gsa-price-guide-2026/"
+    },
+    {
+      "guide": "Conference Price Guide 2026 – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/conference-price-guide-2026-vizient/"
+    },
+    {
+      "guide": "Healthcare US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/healthcare-us-price-guide-2026/"
+    },
+    {
+      "guide": "Healthcare CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/healthcare-cdn-price-guide-2026/"
+    },
+    {
+      "guide": "Healthcare GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/healthcare-gsa-price-guide-2026/"
+    },
+    {
+      "guide": "Healthcare Price Guide 2026 – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/__trashed/"
+    },
+    {
+      "guide": "Seating US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/seating-us-price-guide-2026/"
+    },
+    {
+      "guide": "Seating CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/seating-cdn-price-guide-2026/"
+    },
+    {
+      "guide": "Seating GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/seating-gsa-price-guide-2026/"
+    },
+    {
+      "guide": "Seating & Tables Price Guide 2026 – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/seating-tables-price-guide-2026-vizient/"
+    },
+    {
+      "guide": "Addison US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/addison-us-price-guide-2024/"
+    },
+    {
+      "guide": "Amelio US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/amelio-us-price-guide-2024/"
+    },
+    {
+      "guide": "Ando US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/ando-us-price-guide-2024/"
+    },
+    {
+      "guide": "Aqua US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/aqua-us-price-guides-2024/"
+    },
+    {
+      "guide": "Artemis Laminate US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/artemis-laminate-us-price-guide-2024/"
+    },
+    {
+      "guide": "Artemis US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/artemis-us-price-guide-2026/"
+    },
+    {
+      "guide": "Ascend US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/ascend-us-price-guide-2024/"
+    },
+    {
+      "guide": "Avatar US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/avatar-us-price-guide-2024/"
+    },
+    {
+      "guide": "Bali US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/bali-us-price-guide-2024/"
+    },
+    {
+      "guide": "Bank of England US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/bank-of-england-us-price-guide-2024/"
+    },
+    {
+      "guide": "Blake US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/blake-us-price-guide-2024/"
+    },
+    {
+      "guide": "Brio US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/brio-us-price-guide-2024/"
+    },
+    {
+      "guide": "C5 US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/c5-us-price-guide-2024/"
+    },
+    {
+      "guide": "Cadence US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/cadence-us-price-guide-2024/"
+    },
+    {
+      "guide": "Callisto US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/callisto-us-price-guide-2024/"
+    },
+    {
+      "guide": "Capri US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/capri-us-price-guide-2024/"
+    },
+    {
+      "guide": "Carlyle US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/carlyle-us-price-guide-2024/"
+    },
+    {
+      "guide": "Casegoods US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/casegoods-us-price-guide-2026/"
+    },
+    {
+      "guide": "Chit Chat BH US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/chit-chat-bh-us-price-guide-2024/"
+    },
+    {
+      "guide": "Chit Chat US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/chit-chat-us-price-guide-2024/"
+    },
+    {
+      "guide": "Conference US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/conference-us-price-guides-2026/"
+    },
+    {
+      "guide": "Corfu US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/corfu-us-price-guides-2024/"
+    },
+    {
+      "guide": "Dorso US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/dorso-us-price-guide-2024/"
+    },
+    {
+      "guide": "Faeron BH US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/faeron-behavioral-health-us-price-guide-2024/"
+    },
+    {
+      "guide": "Faeron US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/faeron-us-price-guide-2026/"
+    },
+    {
+      "guide": "Gira US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/gira-us-price-guide-2026/"
+    },
+    {
+      "guide": "Healthcare US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/healthcare-us-price-guide-2026/"
+    },
+    {
+      "guide": "Jordan US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/jordan-us-price-guide-2024/"
+    },
+    {
+      "guide": "Juno BH US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/krug-juno-bh-us-price-guide-2026/"
+    },
+    {
+      "guide": "Juno US  Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/juno-us-price-guide-2024/"
+    },
+    {
+      "guide": "Karma Commercial US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/karma-commercial-us-price-guide-2024/"
+    },
+    {
+      "guide": "Karma US Healthcare Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/karma-us-healthcare-price-guide-2026/"
+    },
+    {
+      "guide": "Kita US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/kita-us-price-guide-2024/"
+    },
+    {
+      "guide": "Latitude US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/latitude-us-price-guide-2024/"
+    },
+    {
+      "guide": "Leyton BH US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/leyton-bh-us-price-guide-2026/"
+    },
+    {
+      "guide": "Leyton US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/leyton-us-price-guide-2024/"
+    },
+    {
+      "guide": "Libra US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/libra-us-price-guide-2024/"
+    },
+    {
+      "guide": "Manolo US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/manolo-us-price-guide-2024/"
+    },
+    {
+      "guide": "Me US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/me-us-price-guide-2024/"
+    },
+    {
+      "guide": "Millennium Casegoods US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/millennium-us-price-guide-2026/"
+    },
+    {
+      "guide": "Millennium Conference US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/millennium-conference-us-price-guides-2024/"
+    },
+    {
+      "guide": "Millennium Tables US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/millennium-tables-us-price-guide-2024/"
+    },
+    {
+      "guide": "Mobi US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/mobi-us-price-guide-2024/"
+    },
+    {
+      "guide": "Nuvo US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/nuvo-us-price-guides-2024/"
+    },
+    {
+      "guide": "Pan Am US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/pan-am-us-price-guide-2024/"
+    },
+    {
+      "guide": "Prado US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/prado-us-price-guide-2024/"
+    },
+    {
+      "guide": "Revo US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/revo-us-price-guides-2024/"
+    },
+    {
+      "guide": "Seating US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/seating-us-price-guide-2026/"
+    },
+    {
+      "guide": "Sloane US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/sloane-us-price-guide-2024/"
+    },
+    {
+      "guide": "Solis US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/solis-us-price-guide-2024/"
+    },
+    {
+      "guide": "Spence US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/spence-us-price-guide-2024/"
+    },
+    {
+      "guide": "Stratford Casegoods US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/stratford-us-price-guide-2026/"
+    },
+    {
+      "guide": "Stratford Conference US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/stratford-conference-us-price-guides-2024/"
+    },
+    {
+      "guide": "Sutton US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/sutton-us-price-guide-2024/"
+    },
+    {
+      "guide": "Tate Bench US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/tate-bench-us-price-guide-2024/"
+    },
+    {
+      "guide": "Tate BH US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/tate-bh-us-price-guide-2026/"
+    },
+    {
+      "guide": "Tranquility US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/tranquility-us-price-guide-2024/"
+    },
+    {
+      "guide": "Trevisa US  Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/trevisa-us-price-guide-2024/"
+    },
+    {
+      "guide": "V2 US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/v2-us-price-guide-2024/"
+    },
+    {
+      "guide": "Vestrada US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/vestrada-us-price-guide-2024/"
+    },
+    {
+      "guide": "Virtu Tables US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/virtu-tables-us-price-guide-2024/"
+    },
+    {
+      "guide": "Virtu US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/virtu-conference-us-price-guide/"
+    },
+    {
+      "guide": "Zola BH US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/zola-behavioural-health-us-price-guide-2026/"
+    },
+    {
+      "guide": "Zola US Price Guide 2026",
+      "market": "US",
+      "url": "https://krug.ca/download/zola-us-price-guide-2024/"
+    },
+    {
+      "guide": "Addison CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/addison-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Adesso CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/adesso-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Amelio CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/amelio-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Ando CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/ando-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Aqua CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/aqua-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Artemis CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/artemis-cdn-price-guides-2024/"
+    },
+    {
+      "guide": "Artemis Laminate CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/artemis-laminate-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Ascend CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/ascend-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Avatar CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/avatar-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Bali CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/bali-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Bank of England CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/bank-of-england-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Blake CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/blake-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Brio CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/brio-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "C5 CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/c5-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Cadence CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/cadence-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Callisto CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/callisto-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Capri CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/capri-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Carlyle CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/carlyle-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Casegoods CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/krug-casegoods-cdn-price-guide-2026/"
+    },
+    {
+      "guide": "Chit Chat BH CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/krug-chit-chat-bh-cdn-price-guide-2026/"
+    },
+    {
+      "guide": "Chit Chat CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/chitchat-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Conference CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/conference-cdn-price-guide-2026/"
+    },
+    {
+      "guide": "Corfu CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/corfu-cdn-price-guides-2024/"
+    },
+    {
+      "guide": "Cressida CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/cressida-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Dorso CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/dorso-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Faeron BH CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/faeron-behavioral-health-cdn-price-guide-2026/"
+    },
+    {
+      "guide": "Faeron CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/faeron-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Gira CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/gira-cdn-price-guide-2026/"
+    },
+    {
+      "guide": "Healthcare CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/healthcare-cdn-price-guide-2026/"
+    },
+    {
+      "guide": "Jordan CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/jordan-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Juno BH CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/juno-bh-cdn-price-guide-2026/"
+    },
+    {
+      "guide": "Juno CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/juno-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Karma CDN Healthcare Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/karma-cdn-healthcare-price-guide-2024/"
+    },
+    {
+      "guide": "Karma Commercial CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/karma-commercial-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Kita CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/kita-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Latitude CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/latitude-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Leyton BH CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/leyton-bh-cdn-price-guide-2026/"
+    },
+    {
+      "guide": "Leyton CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/leyton-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Libra CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/libra-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Manolo CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/manolo-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Me CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/me-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Millennium Casegoods CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/millennium-cdn-price-guide-2026/"
+    },
+    {
+      "guide": "Millennium Conference CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/millennium-conference-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Millennium Tables CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/millennium-tables-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Mobi CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/mobi-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Nuvo CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/nuvo-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Pan Am CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/pan-am-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Prado CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/prado-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Revo CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/revo-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Seating CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/seating-cdn-price-guide-2026/"
+    },
+    {
+      "guide": "Sloane CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/sloane-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Solis CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/solis-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Spence CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/spence-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Stratford Casegoods CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/stratford-cdn-price-guide-2026/"
+    },
+    {
+      "guide": "Stratford Conference CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/stratford-conference-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Sutton CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/sutton-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Tate Bench CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/tate-bench-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Tate BH CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/tate-bh-cdn-price-guide-2026/"
+    },
+    {
+      "guide": "Tranquility CDN  Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/tranquility-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Trevisa CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/trevisa-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "V2 CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/v2-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Vestrada CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/vestrada-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Virtu CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/virtu-conference-cdn-price-guide/"
+    },
+    {
+      "guide": "Virtu Tables CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/virtu-tables-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Zola BH CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/zola-behavioral-health-cdn-price-guide-2026/"
+    },
+    {
+      "guide": "Zola CDN Price Guide 2026",
+      "market": "Canada",
+      "url": "https://krug.ca/download/zola-cdn-price-guide-2024/"
+    },
+    {
+      "guide": "Addison GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/addison-gsa-price-guide/"
+    },
+    {
+      "guide": "Adesso GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/adesso-gsa-price-guide/"
+    },
+    {
+      "guide": "Amelio GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/amelio-gsa-price-guide/"
+    },
+    {
+      "guide": "Ando GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/ando-gsa-price-guide/"
+    },
+    {
+      "guide": "Aqua GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/aqua-gsa-price-guide/"
+    },
+    {
+      "guide": "Artemis GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/artemis-casegoods-gsa-price-guide/"
+    },
+    {
+      "guide": "Artemis Laminate GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/artemis-laminate-gsa-price-guide/"
+    },
+    {
+      "guide": "Ascend GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/ascend-gsa-price-guide/"
+    },
+    {
+      "guide": "Avatar GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/avatar-gsa-price-guide/"
+    },
+    {
+      "guide": "Bali GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/bali-gsa-price-guide/"
+    },
+    {
+      "guide": "Bank of England GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/bank-of-england-gsa-price-guide/"
+    },
+    {
+      "guide": "Blake GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/blake-gsa-price-guide/"
+    },
+    {
+      "guide": "Brio GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/brio-gsa-price-guide/"
+    },
+    {
+      "guide": "C5 GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/c5-gsa-price-guide/"
+    },
+    {
+      "guide": "Cadence GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/cadence-gsa-price-guide/"
+    },
+    {
+      "guide": "Callisto GSA  Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/callisto-gsa-price-guide/"
+    },
+    {
+      "guide": "Capri GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/capri-gsa-price-guide/"
+    },
+    {
+      "guide": "Carlyle GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/carlyle-lounge-gsa-price-guide/"
+    },
+    {
+      "guide": "Casegoods GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/casegoods-gsa-price-guide-2026/"
+    },
+    {
+      "guide": "Chit Chat BH GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/chit-chat-gsa-price-guide/"
+    },
+    {
+      "guide": "Chit Chat GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/chit-chat-gsa-price-guide-2026/"
+    },
+    {
+      "guide": "Conference GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/conference-gsa-price-guide-2026/"
+    },
+    {
+      "guide": "Contour Casegoods GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/contour-casegoods-gsa-2026/"
+    },
+    {
+      "guide": "Corfu GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/corfu-plastic-gsa-price-guide/"
+    },
+    {
+      "guide": "Cressida GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/cressida-lounge-gsa-price-guide/"
+    },
+    {
+      "guide": "Dorso GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/dorso-gsa-price-guide/"
+    },
+    {
+      "guide": "Faeron BH GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/faeron-bh-gsa-price-guide-2026/"
+    },
+    {
+      "guide": "Faeron GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/faeron-metal-guest-gsa-price-guide/"
+    },
+    {
+      "guide": "Gira GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/gira-gsa-price-guide-2026/"
+    },
+    {
+      "guide": "Healthcare GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/healthcare-gsa-price-guide-2026/"
+    },
+    {
+      "guide": "Jordan GSA Healthcare Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/jordan-benches-gsa-price-guide/"
+    },
+    {
+      "guide": "Juno BH GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/juno-bh-gsa-price-guide/"
+    },
+    {
+      "guide": "Juno GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/juno-gsa-price-guide/"
+    },
+    {
+      "guide": "Karma BH GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/karma-bh-gsa-price-guide-2026/"
+    },
+    {
+      "guide": "Karma GSA Healthcare Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/karma-healthcare-gsa-price-guide/"
+    },
+    {
+      "guide": "Kita GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/kita-gsa-price-guide/"
+    },
+    {
+      "guide": "Latitude GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/latitude-gsa-price-guide/"
+    },
+    {
+      "guide": "Leyton BH GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/leyton-bh-gsa-price-guide-2026/"
+    },
+    {
+      "guide": "Leyton GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/leyton-gsa-price-guide/"
+    },
+    {
+      "guide": "Libra GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/libra-gsa-price-guide/"
+    },
+    {
+      "guide": "Manolo GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/manolo-gsa-price-guide/"
+    },
+    {
+      "guide": "ME GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/me-gsa-price-guide/"
+    },
+    {
+      "guide": "Millennium Casegoods GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/millennium-casegoods-gsa-price-guide/"
+    },
+    {
+      "guide": "Millennium Conference GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/millennium-conference-gsa-price-guide/"
+    },
+    {
+      "guide": "Millennium Tables GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/millennium-tables-gsa-price-guide/"
+    },
+    {
+      "guide": "Mobi GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/mobi-gsa-price-guide/"
+    },
+    {
+      "guide": "Nuvo GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/nuvo-gsa-price-guide/"
+    },
+    {
+      "guide": "PanAm GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/pan-am-gsa-price-guide/"
+    },
+    {
+      "guide": "Prado GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/prado-tables-gsa-price-guide/"
+    },
+    {
+      "guide": "Revo GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/revo-gsa-price-guide/"
+    },
+    {
+      "guide": "Seating GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/seating-gsa-price-guide-2026/"
+    },
+    {
+      "guide": "Sloane GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/sloane-gsa-price-guide/"
+    },
+    {
+      "guide": "Solis BH GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/solis-bh-gsa-price-guide/"
+    },
+    {
+      "guide": "Solis GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/solis-guest-gsa-price-guide/"
+    },
+    {
+      "guide": "Spence GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/spence-gsa-price-guide/"
+    },
+    {
+      "guide": "Stratford Conference GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/stratford-conference-gsa-price-guide/"
+    },
+    {
+      "guide": "Stratford GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/stratford-gsa-price-guide/"
+    },
+    {
+      "guide": "Sutton GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/sutton-gsa-price-guide/"
+    },
+    {
+      "guide": "Tate Bench GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/tate-bench-gsa-price-guide/"
+    },
+    {
+      "guide": "Tate BH GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/14402/"
+    },
+    {
+      "guide": "Tranquility GSA Healthcare Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/tranquility-gsa-price-guide/"
+    },
+    {
+      "guide": "Trevisa GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/trevisa-gsa-price-guide/"
+    },
+    {
+      "guide": "V2 GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/virtu-gsa-price-guide/"
+    },
+    {
+      "guide": "Vestrada GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/vestrada-gsa-price-guide/"
+    },
+    {
+      "guide": "Virtu GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/virtu-conference-gsa-price-guide/"
+    },
+    {
+      "guide": "Virtu Tables GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/virtu-tables-gsa-price-guide/"
+    },
+    {
+      "guide": "Zola BH GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/zola-bh-gsa-price-guide-2026/"
+    },
+    {
+      "guide": "Zola GSA Price Guide 2026",
+      "market": "GSA",
+      "url": "https://krug.ca/download/zola-behavioral-health-gsa-price-guide/"
+    },
+    {
+      "guide": "Addison Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/addison-price-guide-vizient/"
+    },
+    {
+      "guide": "Adesso Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/adesso-price-guide-vizient/"
+    },
+    {
+      "guide": "Amelio Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/amelio-price-guide-vizient/"
+    },
+    {
+      "guide": "Ando Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/ando-vizient/"
+    },
+    {
+      "guide": "Aqua Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/aqua-price-guide-vizient/"
+    },
+    {
+      "guide": "Artemis Laminate Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/artemis-laminate-price-guide-vizient/"
+    },
+    {
+      "guide": "Artemis Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/artemis-price-guide-vizient/"
+    },
+    {
+      "guide": "Ascend Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/ascend-price-guide-vizient/"
+    },
+    {
+      "guide": "Avatar Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/avatar-price-guide-vizient/"
+    },
+    {
+      "guide": "Bali Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/bali-price-guide-vizient/"
+    },
+    {
+      "guide": "Bank of England Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/bank-of-england-price-guide-vizient/"
+    },
+    {
+      "guide": "Blake Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/blake-price-guide-vizient/"
+    },
+    {
+      "guide": "Brio Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/brio-price-guide-vizient/"
+    },
+    {
+      "guide": "C5 Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/c5-price-guide-vizient/"
+    },
+    {
+      "guide": "Cadence Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/cadence-price-guide-vizient/"
+    },
+    {
+      "guide": "Callisto Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/callisto-price-guide-vizient/"
+    },
+    {
+      "guide": "Capri Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/capri-price-guide-vizient/"
+    },
+    {
+      "guide": "Carlyle Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/carlyle-price-guide-vizient/"
+    },
+    {
+      "guide": "Casegoods Price Guide 2026 – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/casegoods-price-guide-2026-vizient/"
+    },
+    {
+      "guide": "Chit Chat Behavioral Health Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/chit-chat-behavioral-health-price-guide-vizient/"
+    },
+    {
+      "guide": "Chit Chat Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/chit-chat-price-guide-vizient/"
+    },
+    {
+      "guide": "Conference Price Guide 2026 – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/conference-price-guide-2026-vizient/"
+    },
+    {
+      "guide": "Corfu Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/corfu-price-guide-vizient/"
+    },
+    {
+      "guide": "Cressida Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/cressida-price-guide-vizient/"
+    },
+    {
+      "guide": "Dorso Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/dorso-price-guide-vizient/"
+    },
+    {
+      "guide": "Faeron BH Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/faeron-behavioural-health-price-guide-vizient/"
+    },
+    {
+      "guide": "Faeron Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/faeron-price-guide-vizient/"
+    },
+    {
+      "guide": "Healthcare Price Guide 2026 – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/__trashed/"
+    },
+    {
+      "guide": "Jordan Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/jordan-price-guide-vizient/"
+    },
+    {
+      "guide": "Juno Behavioral Health Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/juno-behavioral-health-price-guide-vizient/"
+    },
+    {
+      "guide": "Juno Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/juno-price-guide-vizient/"
+    },
+    {
+      "guide": "Karma Behavioral Health Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/karma-behavioral-health-price-guide-vizient/"
+    },
+    {
+      "guide": "Karma Commercial Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/karma-commercial-price-guide-vizient/"
+    },
+    {
+      "guide": "Karma HC Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/karma-price-guide-vizient/"
+    },
+    {
+      "guide": "Kita Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/kita-price-guide-vizient/"
+    },
+    {
+      "guide": "Latitude Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/latitude-price-guide-vizient/"
+    },
+    {
+      "guide": "Leyton Behavioural Health Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/leyton-behavioural-health-price-guide-vizient/"
+    },
+    {
+      "guide": "Leyton Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/leyton-price-guide-vizient/"
+    },
+    {
+      "guide": "Manolo Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/manolo-price-guide-vizient/"
+    },
+    {
+      "guide": "Me Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/me-price-guide-vizient/"
+    },
+    {
+      "guide": "Millennium Casegoods Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/millennium-casegoods-price-guide-vizient/"
+    },
+    {
+      "guide": "Millennium Conference Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/millennium-conference-priceguide-vizient/"
+    },
+    {
+      "guide": "Mobi Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/mobi-price-guide-vizient/"
+    },
+    {
+      "guide": "Nuvo Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/nuvo-price-guide-vizient/"
+    },
+    {
+      "guide": "Pan Am Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/pan-am-price-guide-vizient/"
+    },
+    {
+      "guide": "Prado Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/prado-price-guide-vizient/"
+    },
+    {
+      "guide": "Revo Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/revo-price-guide-vizient/"
+    },
+    {
+      "guide": "Seating & Tables Price Guide 2026 – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/seating-tables-price-guide-2026-vizient/"
+    },
+    {
+      "guide": "Sloane Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/sloane-price-guide-vizient/"
+    },
+    {
+      "guide": "Solis Behavioral Health Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/solis-behavioral-health-price-guide-vizient/"
+    },
+    {
+      "guide": "Solis Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/solis-price-guide-vizient/"
+    },
+    {
+      "guide": "Spence Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/spence-price-guide-vizient/"
+    },
+    {
+      "guide": "Stratford Casegoods Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/stratford-casegoods-price-guide-vizient/"
+    },
+    {
+      "guide": "Stratford Conference Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/stratford-conference-price-guide-vizient/"
+    },
+    {
+      "guide": "Sutton Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/sutton-price-guide-vizient/"
+    },
+    {
+      "guide": "Tate Behavioral Health Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/tate-behavioral-health-price-guide-vizient/"
+    },
+    {
+      "guide": "Tate Bench Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/tate-bench-price-guide-vizient/"
+    },
+    {
+      "guide": "Tranquility Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/tranquility-price-guide-vizient/"
+    },
+    {
+      "guide": "Trevisa Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/trevisa-price-guide-vizient/"
+    },
+    {
+      "guide": "V2 Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/v2-price-guide-vizient/"
+    },
+    {
+      "guide": "Vestrada Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/vestrada-price-guide-vizient/"
+    },
+    {
+      "guide": "Virtu Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/virtu-price-guide-vizient/"
+    },
+    {
+      "guide": "Zola Behavioral Health Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/zola-behavioral-health-price-guide-vizient/"
+    },
+    {
+      "guide": "Zola Price Guide – Vizient",
+      "market": "Vizient",
+      "url": "https://krug.ca/download/zola-price-guide-vizient/"
+    }
+  ]
+}
