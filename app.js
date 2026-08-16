@@ -63,7 +63,9 @@ function keywordTokens(value) {
 }
 function catalogueRecord(guide) {
   const ignored = new Set(['price', 'guide', '2026', 'us', 'cdn', 'gsa', 'vizient', 'healthcare', 'commercial', 'behavioral', 'behavioural']);
-  return { ...guide, model: guide.guide, description: 'Current public Krug price guide', keywords: keywordTokens(guide.guide).filter(token => !ignored.has(token)) };
+  const keywords = keywordTokens(guide.guide).filter(token => !ignored.has(token));
+  if (/\bBH\b/i.test(guide.guide)) keywords.push('behavioral', 'behavioural', 'health');
+  return { ...guide, model: guide.guide, description: 'Current public Krug price guide', keywords };
 }
 function planFor(query) {
   const rule = rules.aliases[query];
