@@ -1,5 +1,6 @@
 :root { --ink:#171717; --gold:#cb8d47; --cream:#fff6f0; --line:#e8e0d8; --muted:#5d5a57; }
 #model { text-transform:none; }
+#search:disabled { cursor:wait; opacity:.65; }
 .search-row select { height:40px; min-width:158px; padding:0 30px 0 12px; border:2px solid var(--gold); border-radius:22px; background:#fff; color:var(--ink); font:.84rem Arial,sans-serif; cursor:pointer; }
 * { box-sizing:border-box; } body { margin:0; font-family:Arial,Helvetica,sans-serif; color:var(--ink); background:#fff; }.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
 .site-header { display:flex; align-items:center; gap:42px; width:min(1220px,calc(100% - 48px)); height:100px; margin:auto; }.site-logo img { display:block; width:89px; height:auto; }.site-header nav { display:flex; gap:34px; margin-left:92px; }.site-header a { color:#3d3d3d; font-weight:700; font-size:.96rem; text-decoration:underline; text-underline-offset:3px; }.site-search { display:flex; justify-content:space-between; align-items:center; width:213px; margin-left:auto; padding:11px 12px; border:1px solid #626262; border-radius:30px; font-weight:400!important; text-decoration:none!important; }.site-search span { font-size:1.3rem; }
