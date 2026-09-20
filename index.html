@@ -4,12 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Krug Model# Finder</title>
-    <link rel="stylesheet" href="styles.css?v=footer-simplified-20260816" />
-    <style>footer { grid-template-columns:1fr; } footer .footer-links { grid-template-columns:150px repeat(4,minmax(110px,1fr)); max-width:1050px; margin:auto; padding:64px 52px 45px; }</style>
+    <link rel="stylesheet" href="styles.css?v=20260920-a11y" />
   </head>
   <body>
     <header class="site-header">
-      <a href="https://krug.ca/" class="site-logo"><img src="assets/krug-logo.png" alt="Krug Furniture" /></a>
+      <a href="https://krug.ca/" class="site-logo" aria-label="Krug Furniture home"><img src="assets/krug-logo.png" alt="Krug Furniture" /></a>
       <nav aria-label="Krug navigation"><a href="https://krug.ca/">Products</a><a href="https://krug.ca/">Environments</a><a href="https://krug.ca/literature/">Resources</a><a href="https://krug.ca/about-krug/">About Krug</a><a href="https://connect.krug.ca/">Krug Connect</a></nav>
     </header>
     <main>
@@ -18,21 +17,21 @@
         <p class="intro">Enter a full or partial model number, or product keywords, to find which price guides it appears in.</p>
       </header>
       <section class="search-panel" aria-label="Find a product model">
-        <div class="search-row"><label class="sr-only" for="model">Model number or product keywords</label><input id="model" type="search" autocomplete="off" placeholder="ex. KAR226LSUA or Faeron metal lounge chair" /><label class="sr-only" for="market">Price guide market</label><select id="market"><option value="all">Search all guides</option><option value="US">US price guides</option><option value="Canada">Canadian price guides</option><option value="GSA">GSA price guides</option><option value="Vizient">Vizient price guides</option></select><button id="search" type="button">Find Krug Guide</button></div>
-        <p class="note">Note: Punctuation and case do not matter. Product searches return matching product categories.</p>
+        <div class="search-row"><label class="sr-only" for="model">Model number or product keywords</label><input id="model" type="search" autocomplete="off" aria-describedby="search-note" placeholder="ex. KAR226LSUA or Faeron metal lounge chair" /><label class="sr-only" for="market">Price guide market</label><select id="market" aria-describedby="search-note"><option value="all">Search all guides</option><option value="US">US price guides</option><option value="Canada">Canadian price guides</option><option value="GSA">GSA price guides</option><option value="Vizient">Vizient price guides</option></select><button id="search" type="button">Find Krug Guide</button></div>
+        <p id="search-note" class="note">Note: Capitalization, spaces, hyphens, and underscores do not matter. Decimal sizes remain distinct. Product searches return matching product categories.</p>
       </section>
       <section id="status" class="status" aria-live="polite">Loading current guide index…</section>
       <section id="results" aria-label="Search results"></section>
     </main>
     <footer>
-      <section class="footer-links">
+      <nav class="footer-links" aria-label="Krug footer navigation">
         <img src="assets/krug-logo.png" alt="Krug Furniture" />
         <div><strong>About Krug</strong><a href="https://krug.ca/about-krug/">History</a><strong>Products</strong><a href="https://krug.ca/">Healthcare</a><a href="https://krug.ca/">Workspace</a><a href="https://krug.ca/">Government</a><a href="https://krug.ca/">Education</a></div>
         <div><strong>Resources</strong><a href="https://krug.ca/">Materials</a><a href="https://krug.ca/literature/">Literature</a><a href="https://krug.ca/">Government</a><a href="https://krug.ca/">Environment</a><a href="https://krug.ca/">CEU's</a><a href="https://krug.ca/">Contracts</a></div>
         <div><strong>Connect With Us</strong><a href="https://www.instagram.com/kruginc/">Instagram</a><a href="https://www.pinterest.com/kruginc/">Pinterest</a><a href="https://twitter.com/KrugSolutions">Twitter</a><a href="https://www.linkedin.com/company/krug-inc-dot/">LinkedIn</a></div>
         <div><strong>Contact Us</strong><a href="tel:18885785784">1.888.578.KRUG</a><a href="mailto:solutions@krug.ca">solutions@krug.ca</a></div>
-      </section>
+      </nav>
     </footer>
-    <script src="app.js?v=partial-model-family-20260906"></script>
+    <script src="app.js?v=20260920-a11y"></script>
   </body>
 </html>

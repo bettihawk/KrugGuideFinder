@@ -4,18 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Krug Guide Finder — Page Viewer</title>
-    <link rel="stylesheet" href="viewer.css" />
+    <link rel="stylesheet" href="viewer.css?v=20260920-a11y" />
   </head>
   <body>
     <header>
-      <a href="index.html" class="brand"><img src="assets/krug-logo.png" alt="Krug Furniture" /></a>
-      <div><p id="guide-title">Price guide</p><strong id="page-label">Loading page…</strong></div>
-      <a id="original-pdf" target="_blank" rel="noopener">Open original PDF ↗</a>
+      <a href="index.html" class="brand" aria-label="Return to Krug Model Finder"><img src="assets/krug-logo.png" alt="Krug Furniture" /></a>
+      <div class="page-heading"><p id="guide-title">Price guide</p><strong id="page-label" role="status" aria-live="polite">Loading page…</strong></div>
+      <a id="original-pdf" class="original-pdf" target="_blank" rel="noopener">Open original PDF <span aria-hidden="true">↗</span></a>
     </header>
     <main>
-      <div id="error" hidden></div>
-      <div id="canvas-wrap"><canvas id="page-canvas"></canvas></div>
+      <div id="error" role="alert" hidden>
+        <p id="error-message"></p>
+        <div class="recovery-links"><a href="index.html">Return to Model Finder</a><a id="error-pdf-link" target="_blank" rel="noopener" hidden>Try the original PDF <span aria-hidden="true">↗</span></a></div>
+      </div>
+      <div id="canvas-wrap" aria-busy="true"><canvas id="page-canvas" role="img" aria-label="Loading price guide page" hidden></canvas></div>
+      <noscript><p class="noscript-message">JavaScript is required to display this guide page. Please return to the Model Finder and open the original PDF instead.</p></noscript>
     </main>
-    <script type="module" src="viewer.js"></script>
+    <script type="module" src="viewer.js?v=20260920-a11y"></script>
   </body>
 </html>

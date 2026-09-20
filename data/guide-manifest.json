@@ -3,86 +3,6 @@
   "last_verified": "2026-08-16",
   "guides": [
     {
-      "guide": "Casegoods US Price Guide 2026",
-      "market": "US",
-      "url": "https://krug.ca/download/casegoods-us-price-guide-2026/"
-    },
-    {
-      "guide": "Casegoods CDN Price Guide 2026",
-      "market": "Canada",
-      "url": "https://krug.ca/download/krug-casegoods-cdn-price-guide-2026/"
-    },
-    {
-      "guide": "Casegoods GSA Price Guide 2026",
-      "market": "GSA",
-      "url": "https://krug.ca/download/casegoods-gsa-price-guide-2026/"
-    },
-    {
-      "guide": "Casegoods Price Guide 2026 – Vizient",
-      "market": "Vizient",
-      "url": "https://krug.ca/download/casegoods-price-guide-2026-vizient/"
-    },
-    {
-      "guide": "Conference US Price Guide 2026",
-      "market": "US",
-      "url": "https://krug.ca/download/conference-us-price-guides-2026/"
-    },
-    {
-      "guide": "Conference CDN Price Guide 2026",
-      "market": "Canada",
-      "url": "https://krug.ca/download/conference-cdn-price-guide-2026/"
-    },
-    {
-      "guide": "Conference GSA Price Guide 2026",
-      "market": "GSA",
-      "url": "https://krug.ca/download/conference-gsa-price-guide-2026/"
-    },
-    {
-      "guide": "Conference Price Guide 2026 – Vizient",
-      "market": "Vizient",
-      "url": "https://krug.ca/download/conference-price-guide-2026-vizient/"
-    },
-    {
-      "guide": "Healthcare US Price Guide 2026",
-      "market": "US",
-      "url": "https://krug.ca/download/healthcare-us-price-guide-2026/"
-    },
-    {
-      "guide": "Healthcare CDN Price Guide 2026",
-      "market": "Canada",
-      "url": "https://krug.ca/download/healthcare-cdn-price-guide-2026/"
-    },
-    {
-      "guide": "Healthcare GSA Price Guide 2026",
-      "market": "GSA",
-      "url": "https://krug.ca/download/healthcare-gsa-price-guide-2026/"
-    },
-    {
-      "guide": "Healthcare Price Guide 2026 – Vizient",
-      "market": "Vizient",
-      "url": "https://krug.ca/download/__trashed/"
-    },
-    {
-      "guide": "Seating US Price Guide 2026",
-      "market": "US",
-      "url": "https://krug.ca/download/seating-us-price-guide-2026/"
-    },
-    {
-      "guide": "Seating CDN Price Guide 2026",
-      "market": "Canada",
-      "url": "https://krug.ca/download/seating-cdn-price-guide-2026/"
-    },
-    {
-      "guide": "Seating GSA Price Guide 2026",
-      "market": "GSA",
-      "url": "https://krug.ca/download/seating-gsa-price-guide-2026/"
-    },
-    {
-      "guide": "Seating & Tables Price Guide 2026 – Vizient",
-      "market": "Vizient",
-      "url": "https://krug.ca/download/seating-tables-price-guide-2026-vizient/"
-    },
-    {
       "guide": "Addison US Price Guide 2026",
       "market": "US",
       "url": "https://krug.ca/download/addison-us-price-guide-2024/"
@@ -1206,11 +1126,6 @@
       "guide": "Faeron Price Guide – Vizient",
       "market": "Vizient",
       "url": "https://krug.ca/download/faeron-price-guide-vizient/"
-    },
-    {
-      "guide": "Healthcare Price Guide 2026 – Vizient",
-      "market": "Vizient",
-      "url": "https://krug.ca/download/__trashed/"
     },
     {
       "guide": "Jordan Price Guide – Vizient",

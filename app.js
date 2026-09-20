@@ -1,4 +1,6 @@
-const normalise = (value) => value.toUpperCase().replace(/[^A-Z0-9.]/g, "");
+// Model punctuation is ignored except for decimal points: 18.5 and 185 are
+// different sizes. This is deliberately separate from keyword tokenisation.
+const normalise = (value = '') => String(value).toUpperCase().replace(/[^A-Z0-9.]/g, "");
 const distance = (a, b) => {
   const row = Array.from({ length: b.length + 1 }, (_, i) => i);
   for (let i = 1; i <= a.length; i++) {
@@ -16,8 +18,40 @@ const keywordDistance = (a, b) => {
   }
   return rows[a.length][b.length];
 };
-const score = (query, model) => Math.round(100 * (1 - distance(query, normalise(model)) / Math.max(query.length, normalise(model).length)));
-let records = []; let keywordRecords = []; let rules = { aliases: {} };
+const score = (query, model) => {
+  const candidate = normalise(model);
+  const length = Math.max(query.length, candidate.length);
+  return length ? Math.round(100 * (1 - distance(query, candidate) / length)) : 100;
+};
+const MARKET_ALIASES = Object.freeze({
+  all: 'all', us: 'US', usa: 'US', unitedstates: 'US',
+  canada: 'Canada', canadian: 'Canada', ca: 'Canada', cdn: 'Canada',
+  gsa: 'GSA', vizient: 'Vizient'
+});
+const canonicalMarket = (market = '') => MARKET_ALIASES[String(market).toLowerCase().replace(/[^a-z]/g, '')] || String(market);
+const isInMarket = (item, selectedMarket = 'all') => {
+  const selected = canonicalMarket(selectedMarket);
+  return selected === 'all' || canonicalMarket(item.market) === selected;
+};
+const safeKrugUrl = (value) => {
+  try {
+    const parsed = new URL(String(value));
+    return parsed.protocol === 'https:' && (parsed.hostname === 'krug.ca' || parsed.hostname.endsWith('.krug.ca')) ? parsed.href : null;
+  } catch { return null; }
+};
+const pageLinkData = (item) => {
+  const guidePage = item.guide_page ?? item.page ?? null;
+  const pdfPage = item.pdf_page ?? item.page ?? item.guide_page;
+  const sourceUrl = safeKrugUrl(item.url);
+  const hasPage = Number.isFinite(Number(pdfPage)) && Number(pdfPage) > 0;
+  if (!sourceUrl) return { sourceUrl: null, hasPage, guidePage, pdfPage };
+  const source = new URL(sourceUrl);
+  if (hasPage) source.hash = `page=${pdfPage}`;
+  const viewerParams = hasPage ? new URLSearchParams({ file: sourceUrl, page: String(pdfPage), title: item.guide || '' }) : null;
+  if (viewerParams && guidePage != null) viewerParams.set('guidePage', String(guidePage));
+  return { sourceUrl: source.href, hasPage, guidePage, pdfPage, viewerUrl: viewerParams ? `viewer.html?${viewerParams}` : null };
+};
+let records = []; let keywordRecords = []; let rules = { aliases: {}, review_only: {} };
 // Essential category matches live here too, so a stale JSON cache cannot disable search.
 const builtInKeywordRecords = [
   ['Nuvo Tables with power','Nuvo US Price Guide 2026','https://krug.ca/downloads/priceguides/Krug_Nuvo_US_PriceGuide_2026.pdf'],
@@ -52,19 +86,6 @@ const builtInKeywordRecords = [
   ,['Stratford Conference Tables with power','Stratford Conference Vizient Price Guide 2026','https://krug.ca/download/stratford-conference-price-guide-vizient/','Vizient']
   ,['Virtu Conference Tables with power','Virtu Vizient Price Guide 2026','https://krug.ca/download/virtu-price-guide-vizient/','Vizient']
 ].map(([model, guide, url, market = 'US']) => ({ model, guide, url, market, keywords: ['table', 'power'] }));
-const status = document.querySelector('#status'); const results = document.querySelector('#results'); const input = document.querySelector('#model'); const marketSelect = document.querySelector('#market'); const searchButton = document.querySelector('#search'); let indexReady = false;
-function card(item, close) {
-  const match = close ? `<span class="badge">Similar ${item.score}%</span>` : '';
-  const guidePage = item.guide_page ?? item.page;
-  const pdfPage = item.pdf_page ?? item.page;
-  const hasPage = Number.isFinite(Number(pdfPage));
-  const pageUrl = `${item.url}${item.url.includes('#') ? '&' : '#'}page=${pdfPage}`;
-  const viewerUrl = `viewer.html?file=${encodeURIComponent(item.url)}&page=${pdfPage}&guidePage=${encodeURIComponent(guidePage)}&title=${encodeURIComponent(item.guide)}`;
-  const description = item.description ? `<p class="description">${item.description}</p>` : '';
-  const meta = hasPage ? `${item.market} · Guide page ${guidePage}` : `${item.market} · Product category`;
-  const actions = hasPage ? `<a href="${viewerUrl}" target="_blank" rel="noopener">View guide page ${guidePage} ↗</a><a class="source-link" href="${pageUrl}" target="_blank" rel="noopener">Original PDF</a>` : `<a href="${item.url}" target="_blank" rel="noopener">Open guide ↗</a>`;
-  return `<article class="card"><div><h3>${item.guide}</h3><p class="model">${item.model}${match}</p>${description}<p class="meta">${meta}</p></div><div class="actions">${actions}</div></article>`;
-}
 function keywordTokens(value) {
   const singular = { chairs: 'chair', tables: 'table', lounges: 'lounge', models: 'model' };
   const spelling = { behavioural: 'behavioral', grey: 'gray', milenium: 'millennium', millenium: 'millennium' };
@@ -77,40 +98,168 @@ function catalogueRecord(guide) {
   if (/\bBH\b/i.test(guide.guide)) keywords.push('behavioral', 'health');
   return { ...guide, model: guide.guide, description: 'Current public Krug price guide', keywords };
 }
-function correctKeywordTypos(tokens) {
-  const vocabulary = new Set(keywordRecords.flatMap(record => record.keywords || []).filter(word => word.length >= 5));
+function correctKeywordTypos(tokens, sourceRecords = keywordRecords) {
+  const vocabulary = [...new Set(sourceRecords.flatMap(record => (record.keywords || []).flatMap(keywordTokens)).filter(word => word.length >= 5))].sort();
   return tokens.map(token => {
-    if (token.length < 5 || /\d/.test(token) || vocabulary.has(token)) return token;
-    const matches = [...vocabulary].filter(word => word[0] === token[0] && keywordDistance(token, word) <= 1);
-    return matches.length === 1 ? matches[0] : token;
+    if (token.length < 5 || /\d/.test(token) || vocabulary.includes(token)) return token;
+    const matches = vocabulary.map(word => ({ word, distance: keywordDistance(token, word) }))
+      .filter(match => match.word[0] === token[0] && match.distance <= 1)
+      .sort((a, b) => a.distance - b.distance || a.word.localeCompare(b.word));
+    return matches.length && (matches.length === 1 || matches[0].distance < matches[1].distance) ? matches[0].word : token;
   });
 }
-function planFor(query) {
-  const rule = rules.aliases[query];
-  const reviewNote = rules.review_only?.[query];
+function dedupeKeywordMatches(matches) {
+  const unique = new Map();
+  matches.forEach((item) => {
+    const hasPage = Number.isFinite(Number(item.pdf_page ?? item.page));
+    const key = hasPage
+      ? `${item.model}|${item.guide}|${canonicalMarket(item.market)}|${item.pdf_page ?? item.page}`
+      : `${item.guide}|${canonicalMarket(item.market)}|${safeKrugUrl(item.url) || item.url}`;
+    const current = unique.get(key);
+    const detail = (item.keywords || []).length + (item.description ? 1 : 0);
+    const currentDetail = current ? (current.keywords || []).length + (current.description ? 1 : 0) : -1;
+    if (!current || detail > currentDetail) unique.set(key, item);
+  });
+  return [...unique.values()];
+}
+function planFor(query, matchingRules = rules) {
+  const rule = matchingRules.aliases?.[query];
+  const reviewNote = matchingRules.review_only?.[query];
   if (rule) return { rule, candidates: rule.targets.map(normalise) };
   if (reviewNote) return { rule: { label: 'Configuration review required', note: reviewNote }, candidates: [query], reviewOnly: true };
   return { rule: null, candidates: [query] };
 }
-function search() {
-  if (!indexReady) { status.textContent = 'Loading the current public guide index…'; return; }
-  const query = normalise(input.value);
-  const selectedMarket = marketSelect.value;
-  const inMarket = item => selectedMarket === 'all' || item.market === selectedMarket || (selectedMarket === 'Canada' && ['Canadian', 'CA'].includes(item.market));
-  const marketLabel = selectedMarket === 'Canada' ? 'Canadian' : selectedMarket;
-  if (!query) { results.innerHTML = ''; status.textContent = `Search ${records.length.toLocaleString()} indexed model locations.`; return; }
-  const plan = planFor(query);
-  const exact = records.filter(r => inMarket(r) && plan.candidates.includes(normalise(r.model)));
-  const family = query.match(/^([A-Z]{2,7}\d)/)?.[1];
-  const partial = exact.length || !family ? [] : records.filter(r => inMarket(r) && normalise(r.model).startsWith(family));
-  let keywords = correctKeywordTypos(keywordTokens(input.value));
-  const keywordMatches = exact.length || partial.length || !keywords.length ? [] : keywordRecords.filter(record => inMarket(record) && keywords.every(token => record.keywords.includes(token)));
-  const similar = exact.length || partial.length || keywordMatches.length || plan.reviewOnly ? [] : records.filter(inMarket).map(r => ({...r, score:score(query, r.model)})).filter(r => r.score >= 68).sort((a,b) => b.score-a.score).slice(0,12);
-  const heading = plan.rule ? plan.rule.label : 'Exact matches';
-  const note = plan.rule ? `<p>${plan.rule.note}</p>` : '';
-  status.textContent = exact.length ? `${exact.length} guide location${exact.length === 1 ? '' : 's'} found.` : partial.length ? `${partial.length} partial model-family match${partial.length === 1 ? '' : 'es'} found.` : keywordMatches.length ? `${keywordMatches.length} product-category match${keywordMatches.length === 1 ? '' : 'es'} found.` : similar.length ? 'No exact model found. These configurations are the closest matches.' : selectedMarket === 'all' ? 'No matching guide locations found.' : `No ${marketLabel} guide locations found.`;
-  results.innerHTML = exact.length ? `<div class="result-group"><h2>${heading}</h2>${note}${exact.map(r => card(r,!!plan.rule)).join('')}</div>` : partial.length ? `<div class="result-group"><h2>Partial model-family matches</h2><p>These configurations share the product-family prefix you entered. Confirm the full product key before quoting or ordering.</p>${partial.map(r => card(r,true)).join('')}</div>` : keywordMatches.length ? `<div class="result-group"><h2>Product-category matches</h2><p>Matched on the product terms you entered. Select a guide page to see the listed model configurations.</p>${keywordMatches.map(r => card(r,false)).join('')}</div>` : similar.length ? `<div class="result-group"><h2>Similar configurations</h2><p>Confirm the product key before quoting or ordering.</p>${similar.map(r => card(r,true)).join('')}</div>` : plan.rule ? `<div class="empty"><strong>${plan.rule.label}.</strong> ${plan.rule.note}</div>` : selectedMarket === 'all' ? `<div class="empty">Try entering a product family prefix, a product description, or check the model number. The public index is refreshed when new guides are published.</div>` : `<div class="empty">There are no indexed ${marketLabel} guide matches for this search yet. Select “Search all guides” to see matches in every market.</div>`;
+
+function findMatches({ input = '', market = 'all', records: modelRecords = [], keywordRecords: products = [], rules: matchingRules = { aliases: {}, review_only: {} } }) {
+  const query = normalise(input);
+  if (!query) return { kind: 'empty', query, matches: [], plan: planFor(query, matchingRules), keywords: [] };
+  const plan = planFor(query, matchingRules);
+  const availableModels = modelRecords.filter(item => isInMarket(item, market));
+  const exact = availableModels.filter(item => plan.candidates.includes(normalise(item.model)));
+  if (exact.length) return { kind: plan.rule ? 'alias' : 'exact', query, matches: exact, plan, keywords: [] };
+
+  // First try the entire entered prefix. A narrowly bounded legacy family
+  // fallback is handled separately below.
+  const looksLikeModel = /[A-Z]/.test(query) && /\d/.test(query);
+  const partial = !plan.reviewOnly && looksLikeModel && query.length >= 3
+    ? availableModels.filter(item => normalise(item.model).startsWith(query)) : [];
+  if (partial.length) return { kind: 'partial', query, matches: partial, plan, keywords: [] };
+
+  // Preserve the established compact-family lookup for a single extra
+  // character (for example KAR22 -> KAR2 family) without allowing a long,
+  // mistyped code such as KAR2999 to fan out across the whole family.
+  const familyPrefix = query.match(/^([A-Z]{2,7}\d)/)?.[1];
+  const familyMatches = !plan.reviewOnly && familyPrefix && query.length === familyPrefix.length + 1
+    ? availableModels.filter(item => normalise(item.model).startsWith(familyPrefix)) : [];
+  if (familyMatches.length) return { kind: 'family', query, matches: familyMatches, plan, keywords: [] };
+
+  const keywords = correctKeywordTypos(keywordTokens(input), products);
+  const keywordMatches = !plan.reviewOnly && keywords.length
+    ? dedupeKeywordMatches(products.filter(item => {
+      const itemKeywords = new Set((item.keywords || []).flatMap(keywordTokens));
+      return isInMarket(item, market) && keywords.every(token => itemKeywords.has(token));
+    })) : [];
+  if (keywordMatches.length) return { kind: 'keyword', query, matches: keywordMatches, plan, keywords };
+
+  // A curated rule is authoritative. If its target is not in the current
+  // index, show the rule's review message instead of substituting a fuzzy hit.
+  const similar = plan.rule ? [] : availableModels.map(item => ({ ...item, score: score(query, item.model) }))
+    .filter(item => item.score >= 68)
+    .sort((a, b) => b.score - a.score || String(a.model).localeCompare(String(b.model)) || String(a.guide).localeCompare(String(b.guide)))
+    .slice(0, 12);
+  return { kind: similar.length ? 'similar' : plan.rule ? 'review' : 'none', query, matches: similar, plan, keywords };
 }
-searchButton.disabled = true;
-Promise.all([fetch('data/search-index.json?v=typo-tolerance-20260816', { cache: 'no-store' }).then(r => r.json()), fetch('data/matching-rules.json?v=typo-tolerance-20260816', { cache: 'no-store' }).then(r => r.json()), fetch('data/guide-manifest.json?v=typo-tolerance-20260816', { cache: 'no-store' }).then(r => r.json())]).then(([data, loadedRules, catalogue]) => { records = data.records; keywordRecords = [...new Map([...builtInKeywordRecords, ...(data.keyword_records || []), ...(catalogue.guides || []).map(catalogueRecord)].map(item => [`${item.model}|${item.guide}`, item])).values()]; rules = loadedRules; indexReady = true; searchButton.disabled = false; status.textContent = `Search ${records.length.toLocaleString()} indexed model locations and ${(catalogue.guides || []).length.toLocaleString()} current public guides from ${data.updated}.`; if (input.value.trim()) search(); }).catch(() => { keywordRecords = builtInKeywordRecords; indexReady = true; searchButton.disabled = false; status.textContent = 'Product-category search is available. The full model index could not be loaded.'; if (input.value.trim()) search(); });
-document.querySelector('#search').addEventListener('click', search); input.addEventListener('keydown', e => { if (e.key === 'Enter') search(); });
+
+function appendTextElement(parent, tag, text, className) {
+  const element = document.createElement(tag); element.textContent = text;
+  if (className) element.className = className;
+  parent.append(element); return element;
+}
+function createCard(item, kind) {
+  const article = document.createElement('article'); article.className = 'card';
+  const content = document.createElement('div');
+  appendTextElement(content, 'h3', item.guide || 'Krug price guide');
+  const model = appendTextElement(content, 'p', item.model || '', 'model');
+  if (kind === 'similar' && Number.isFinite(item.score)) appendTextElement(model, 'span', `Similar ${item.score}%`, 'badge');
+  if (item.description) appendTextElement(content, 'p', item.description, 'description');
+  const { guidePage, pdfPage, hasPage, sourceUrl, viewerUrl } = pageLinkData(item);
+  const pageLabel = guidePage == null ? `PDF page ${pdfPage}` : `Guide page ${guidePage}`;
+  appendTextElement(content, 'p', hasPage ? `${canonicalMarket(item.market)} · ${pageLabel}` : `${canonicalMarket(item.market)} · Product category`, 'meta');
+  article.append(content);
+  const actions = document.createElement('div'); actions.className = 'actions';
+  if (sourceUrl) {
+    if (hasPage) {
+      const visiblePage = guidePage == null ? `PDF page ${pdfPage}` : `guide page ${guidePage}`;
+      const viewer = appendTextElement(actions, 'a', `View ${visiblePage} ↗`); viewer.href = viewerUrl; viewer.target = '_blank'; viewer.rel = 'noopener'; viewer.setAttribute('aria-label', `View ${visiblePage} in ${item.guide || 'Krug price guide'}`);
+      const pdf = appendTextElement(actions, 'a', `Original PDF · PDF page ${pdfPage}`, 'source-link'); pdf.href = sourceUrl; pdf.target = '_blank'; pdf.rel = 'noopener'; pdf.setAttribute('aria-label', `Open ${item.guide || 'Krug price guide'} at PDF page ${pdfPage}`);
+    } else {
+      const link = appendTextElement(actions, 'a', 'Open guide ↗'); link.href = sourceUrl; link.target = '_blank'; link.rel = 'noopener'; link.setAttribute('aria-label', `Open ${item.guide || 'Krug price guide'}`);
+    }
+  }
+  article.append(actions); return article;
+}
+function renderSearch(outcome, selectedMarket, status, results) {
+  results.replaceChildren();
+  const market = canonicalMarket(selectedMarket); const marketLabel = market === 'Canada' ? 'Canadian' : market;
+  const count = outcome.matches.length;
+  const messages = {
+    exact: `${count} guide location${count === 1 ? '' : 's'} found.`, alias: `${count} guide location${count === 1 ? '' : 's'} found.`,
+    partial: `${count} partial model match${count === 1 ? '' : 'es'} found.`, family: `${count} possible model-family match${count === 1 ? '' : 'es'} found.`, keyword: `${count} product-category match${count === 1 ? '' : 'es'} found.`,
+    similar: 'No exact model found. These configurations are the closest matches.', review: 'Configuration review required.',
+    none: market === 'all' ? 'No matching guide locations found.' : `No ${marketLabel} guide locations found.`
+  };
+  status.textContent = messages[outcome.kind] || '';
+  if (outcome.kind === 'empty') return;
+  if (!count) {
+    const empty = document.createElement('div'); empty.className = 'empty';
+    if (outcome.plan.rule) { appendTextElement(empty, 'strong', `${outcome.plan.rule.label}. `); empty.append(document.createTextNode(outcome.plan.rule.note || '')); }
+    else empty.textContent = market === 'all' ? 'Try entering a product family prefix, a product description, or check the model number. The public index is refreshed when new guides are published.' : `There are no indexed ${marketLabel} guide matches for this search yet. Select “Search all guides” to see matches in every market.`;
+    results.append(empty); return;
+  }
+  const group = document.createElement('div'); group.className = 'result-group';
+  const headings = { exact: 'Exact matches', alias: outcome.plan.rule?.label || 'Matched configuration', partial: 'Partial model matches', family: 'Possible model-family matches', keyword: 'Product-category matches', similar: 'Similar configurations' };
+  appendTextElement(group, 'h2', headings[outcome.kind]);
+  if (outcome.kind === 'alias' && outcome.plan.rule.note) appendTextElement(group, 'p', outcome.plan.rule.note);
+  if (outcome.kind === 'partial') appendTextElement(group, 'p', 'These configurations share the full model prefix you entered. Confirm the full product key before quoting or ordering.');
+  if (outcome.kind === 'family') appendTextElement(group, 'p', 'No full-prefix match was found, so these results use the shorter product-family key. Confirm the complete model number before quoting or ordering.');
+  if (outcome.kind === 'keyword') appendTextElement(group, 'p', 'Matched on the product terms you entered. Page-specific matches open at the listed page; broader category matches open the guide.');
+  if (outcome.kind === 'similar') appendTextElement(group, 'p', 'Confirm the product key before quoting or ordering.');
+  outcome.matches.forEach(item => group.append(createCard(item, outcome.kind)));
+  results.append(group);
+}
+
+async function loadJson(path) {
+  const response = await fetch(path, { cache: 'no-store' });
+  if (!response.ok) throw new Error(`${path}: ${response.status}`);
+  return response.json();
+}
+async function initialise() {
+  const status = document.querySelector('#status'); const results = document.querySelector('#results');
+  const input = document.querySelector('#model'); const marketSelect = document.querySelector('#market'); const searchButton = document.querySelector('#search');
+  if (!status || !results || !input || !marketSelect || !searchButton) return;
+  searchButton.disabled = true;
+  const loaded = await Promise.allSettled([
+    loadJson('data/search-index.json?v=search-core-20260920'),
+    loadJson('data/matching-rules.json?v=search-core-20260920'),
+    loadJson('data/guide-manifest.json?v=search-core-20260920')
+  ]);
+  const data = loaded[0].status === 'fulfilled' ? loaded[0].value : {};
+  const loadedRules = loaded[1].status === 'fulfilled' ? loaded[1].value : null;
+  const catalogue = loaded[2].status === 'fulfilled' ? loaded[2].value : {};
+  records = Array.isArray(data.records) ? data.records : [];
+  rules = loadedRules || { aliases: {}, review_only: {} };
+  keywordRecords = [...new Map([...builtInKeywordRecords, ...(data.keyword_records || []), ...(catalogue.guides || []).map(catalogueRecord)].map(item => [`${item.model}|${item.guide}|${canonicalMarket(item.market)}`, item])).values()];
+  const run = () => {
+    if (!input.value.trim()) { results.replaceChildren(); status.textContent = `Search ${records.length.toLocaleString()} indexed model locations.`; return; }
+    renderSearch(findMatches({ input: input.value, market: marketSelect.value, records, keywordRecords, rules }), marketSelect.value, status, results);
+  };
+  searchButton.disabled = false;
+  const failures = loaded.filter(item => item.status === 'rejected').length;
+  status.textContent = failures ? `Search is available. ${failures} index source${failures === 1 ? '' : 's'} could not be loaded.` : `Search ${records.length.toLocaleString()} indexed model locations and ${(catalogue.guides || []).length.toLocaleString()} current public guides from ${data.updated || 'the latest index'}.`;
+  searchButton.addEventListener('click', run); input.addEventListener('keydown', event => { if (event.key === 'Enter') run(); }); marketSelect.addEventListener('change', () => { if (input.value.trim()) run(); });
+  if (input.value.trim()) run();
+}
+
+const SearchCore = { normalise, distance, keywordDistance, score, canonicalMarket, isInMarket, safeKrugUrl, pageLinkData, keywordTokens, catalogueRecord, correctKeywordTypos, dedupeKeywordMatches, planFor, findMatches };
+if (typeof module !== 'undefined' && module.exports) module.exports = SearchCore;
+if (typeof window !== 'undefined') { window.KrugSearchCore = SearchCore; initialise(); }

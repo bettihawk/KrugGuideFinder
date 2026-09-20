@@ -2,8 +2,8 @@
   "aliases": {
     "KAR218": {"targets":["KAR2-18.5"],"label":"Karma Guest Seating — 18.5-inch size","note":"The compact entry resolves to the 18.5-inch Karma Guest Seating model family."},
     "KAR226LCUNAD": {"targets":["KAR2-26LCUNAD","KAR2C-26LCUNAD"],"label":"Equivalent product-key entry","note":"The entered C denotes polished chrome; the current guide uses the current Karma series code."},
-    "KAR226LSUNAD": {"targets":["KAR2-26L_UNAD","KAR2C-26L_UNAD"],"label":"Equivalent product-key entry","note":"For this configuration, B or S frame colour resolves to the price-guide base model; C resolves to the polished-chrome model."},
-    "KAR226LBUNAD": {"targets":["KAR2-26L_UNAD","KAR2C-26L_UNAD"],"label":"Equivalent product-key entry","note":"For this configuration, B or S frame colour resolves to the price-guide base model; C resolves to the polished-chrome model."},
+    "KAR226LSUNAD": {"targets":["KAR2-26L_UNAD"],"label":"Equivalent product-key entry","note":"The S frame colour resolves only to the price-guide base model. It must never resolve to the polished-chrome C model."},
+    "KAR226LBUNAD": {"targets":["KAR2-26L_UNAD"],"label":"Equivalent product-key entry","note":"The B frame colour resolves only to the price-guide base model. It must never resolve to the polished-chrome C model."},
     "FAE2G30SNCB": {"targets":["FAE2-G30SNC"],"label":"Equivalent product-key entry","note":"The trailing B denotes Beech wood and is normally omitted from the price-guide model."},
     "FAE2P30CNCP": {"targets":["FAE2-P30CNC"],"label":"Equivalent product-key entry","note":"The trailing P denotes palette wood and is normally omitted from the price-guide model."},
     "CRE2PCPFG21X3CLP": {"targets":["CRE2-PCFG21X3CLP"],"label":"Corrected product-key order","note":"The entered product-key segments were reordered to the guide convention; confirm the final configuration before quoting."},

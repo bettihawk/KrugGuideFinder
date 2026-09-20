@@ -20,25 +20,38 @@ Refresh the current public guide list before an indexing run:
 python3 scripts/sync_public_catalog.py
 ```
 
-This writes `data/guide-manifest.json`, which is the live, market-labelled catalogue used by the site. Run it whenever Krug updates the Literature page; review any added/removed links, then run the PDF model-page extraction below for the guides that have changed.
+This writes `data/guide-manifest.json`, which is the live, market-labelled catalogue used by the site. It removes duplicates, canonicalizes the four markets (`US`, `Canada`, `GSA`, and `Vizient`), and refuses WordPress tombstone (`__trashed`) links. Run it whenever Krug updates the Literature page and review the added/removed links before publishing.
 
-Create `guide-manifest.json` containing the public PDF URLs:
+Each guide can contain either a direct `pdf_url`, a public Krug download-page `url`, or both:
 
 ```json
-{"guides":[{"guide":"Seating US Price Guide 2026","market":"US","pdf_url":"https://krug.ca/downloads/priceguides/Krug_Seating_US_PriceGuide_2026.pdf"}]}
+{"guides":[{"guide":"Seating US Price Guide 2026","market":"US","url":"https://krug.ca/download/seating-us-price-guide-2026/","pdf_url":"https://krug.ca/downloads/priceguides/Krug_Seating_US_PriceGuide_2026.pdf"}]}
 ```
 
 Then, using the bundled Python runtime with `pypdf` installed:
 
 ```sh
-python3 scripts/build_index.py guide-manifest.json
+python3 scripts/build_index.py data/guide-manifest.json
 ```
 
-The script keeps source PDFs in `.guide-cache/` and writes `data/search-index.json`. The production refresh should retain the manifest, run on a schedule, report PDFs that have no extractable text, and publish only after a validation check.
+Normal indexing runs re-download every resolved PDF so a changed guide cannot be hidden by an old cached copy. Use `--reuse-cache` only for an intentional offline or repeatable test run.
+
+When `pdf_url` is absent, the builder resolves exactly one PDF from the Krug download page; ambiguous pages must be reviewed and given an explicit `pdf_url`. The script keeps source PDFs in `.guide-cache/`, produces deterministic model-location records, preserves the existing hand-curated `keyword_records`, and writes `data/search-index.json`. A printed `guide_page` is stored only when it is found in the PDF text; otherwise it remains `null` rather than incorrectly copying the physical `pdf_page`.
+
+Validate all checked-in data and run the offline test suite before publishing:
+
+```sh
+python3 scripts/validate_data.py
+python3 -m unittest discover -s tests -v
+```
+
+The public guide catalogue is substantially broader than the verified page-level index. Full model/page extraction remains incomplete, and keyword/category records remain curated evidence rather than inferred pricing equivalence. A production refresh should run on a schedule, report PDFs with no extractable text, compare manifest changes for human review, and publish only after validation succeeds.
 
 ## Matching safeguards
 
 `data/matching-rules.json` contains deliberately narrow product-aware aliases and caution notes. It is not a general-purpose autocorrect list: rules that affect configuration or price are labelled **review required**, and ambiguous or distinct models are held in `review_only`. `data/acceptance-fixtures.json` records the real-world inputs supplied by the Krug team and should be expanded whenever a rule is added.
+
+Compact codes such as `KAR218` are accepted by the extractor only when they contain a plausible 2–7 letter family prefix plus digits and are 5–32 characters long. A one-letter family such as `V2` is accepted only when the extracted model contains a separator, which reduces false positives. Punctuation and case may be normalized for lookup, but option-bearing segments and numeric sizes are never freely corrected. In particular, Karma B/S frame-colour inputs resolve only to the base model and never to the polished-chrome C model; `JD1321N` and `JD1SS1321N` remain distinct.
 
 ## Prototype evidence
 
