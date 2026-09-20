@@ -1,0 +1,4 @@
+interface:
+  display_name: "Krug Lookup Builder"
+  short_description: "Build and verify the Krug model lookup app"
+  default_prompt: "Use $krug-lookup-builder to continue building and testing the Krug Lookup App."
