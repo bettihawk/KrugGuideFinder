@@ -245,9 +245,10 @@ async function initialise() {
     loadJson('data/matching-rules.json?v=search-core-20260920'),
     loadJson('data/guide-manifest.json?v=search-core-20260920')
   ]);
-  const data = loaded[0].status === 'fulfilled' ? loaded[0].value : {};
-  const loadedRules = loaded[1].status === 'fulfilled' ? loaded[1].value : null;
-  const catalogue = loaded[2].status === 'fulfilled' ? loaded[2].value : {};
+  const fallback = window.KRUG_GUIDE_DATA || {};
+  const data = loaded[0].status === 'fulfilled' ? loaded[0].value : (fallback.searchIndex || {});
+  const loadedRules = loaded[1].status === 'fulfilled' ? loaded[1].value : (fallback.matchingRules || null);
+  const catalogue = loaded[2].status === 'fulfilled' ? loaded[2].value : (fallback.guideManifest || {});
   records = Array.isArray(data.records) ? data.records : [];
   rules = loadedRules || { aliases: {}, review_only: {} };
   keywordRecords = [...new Map([...builtInKeywordRecords, ...(data.keyword_records || []), ...(catalogue.guides || []).map(catalogueRecord)].map(item => [`${item.model}|${item.guide}|${canonicalMarket(item.market)}`, item])).values()];
@@ -257,7 +258,12 @@ async function initialise() {
   };
   searchButton.disabled = false;
   const failures = loaded.filter(item => item.status === 'rejected').length;
-  status.textContent = failures ? `Search is available. ${failures} index source${failures === 1 ? '' : 's'} could not be loaded.` : `Search ${records.length.toLocaleString()} indexed model locations and ${(catalogue.guides || []).length.toLocaleString()} current public guides from ${data.updated || 'the latest index'}.`;
+  const usingFallback = failures > 0 && Boolean(fallback.searchIndex);
+  status.textContent = usingFallback
+    ? `Search ${records.length.toLocaleString()} indexed model locations and ${(catalogue.guides || []).length.toLocaleString()} bundled public guides from ${data.updated || 'the latest index'}.`
+    : failures
+      ? `Search is available. ${failures} index source${failures === 1 ? '' : 's'} could not be loaded.`
+      : `Search ${records.length.toLocaleString()} indexed model locations and ${(catalogue.guides || []).length.toLocaleString()} current public guides from ${data.updated || 'the latest index'}.`;
   searchButton.addEventListener('click', run); input.addEventListener('keydown', event => { if (event.key === 'Enter') run(); }); marketSelect.addEventListener('change', () => { if (input.value.trim()) run(); });
   if (input.value.trim()) run();
 }

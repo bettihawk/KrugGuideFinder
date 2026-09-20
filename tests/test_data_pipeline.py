@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import build_index
+import build_runtime_bundle
 import sync_public_catalog
 
 
@@ -117,6 +118,12 @@ class MatchingRuleTests(unittest.TestCase):
         rules = json.loads((ROOT / "data" / "matching-rules.json").read_text())
         self.assertIn("JD1321N", rules["review_only"])
         self.assertNotIn("JD1321N", rules["aliases"])
+
+
+class RuntimeBundleTests(unittest.TestCase):
+    def test_runtime_bundle_matches_checked_in_json(self):
+        expected = build_runtime_bundle.render_bundle(build_runtime_bundle.build_payload())
+        self.assertEqual((ROOT / "data" / "runtime-data.js").read_text(encoding="utf-8"), expected)
 
 
 if __name__ == "__main__":

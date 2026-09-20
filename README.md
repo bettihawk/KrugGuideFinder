@@ -12,6 +12,12 @@ python3 -m http.server 8000
 
 Open `http://localhost:8000`.
 
+Opening `index.html` directly also works. In that `file://` mode, browsers cannot fetch the JSON data files, so the page uses the generated `data/runtime-data.js` fallback instead. Rebuild that fallback after changing the manifest, matching rules, or search index:
+
+```sh
+python3 scripts/build_runtime_bundle.py
+```
+
 ## Populate the full catalogue
 
 Refresh the current public guide list before an indexing run:
@@ -42,6 +48,7 @@ Validate all checked-in data and run the offline test suite before publishing:
 
 ```sh
 python3 scripts/validate_data.py
+python3 scripts/build_runtime_bundle.py
 python3 -m unittest discover -s tests -v
 ```
 
