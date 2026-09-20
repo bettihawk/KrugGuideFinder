@@ -103,6 +103,19 @@ test('keyword spelling, stop words, and a unique transposition typo behave deter
   assert.equal(result.matches[0].model, 'Faeron Lounge');
 });
 
+test('short product-family prefixes return possible related guides', () => {
+  assert.equal(search('fa', 'US').kind, 'keyword');
+  assert.equal(search('fa', 'US').matches[0].model, 'Faeron Lounge');
+  assert.equal(search('kar', 'US').kind, 'none');
+  const catalogueProducts = [
+    ...keywordRecords,
+    { model: 'Karma US Price Guide', guide: 'Karma US Price Guide', market: 'US', keywords: ['karma'], url: 'https://krug.ca/download/karma/' },
+    { model: 'Jordan US Price Guide', guide: 'Jordan US Price Guide', market: 'US', keywords: ['jordan'], url: 'https://krug.ca/download/jordan/' }
+  ];
+  assert.equal(findMatches({ input: 'kar', market: 'US', records, keywordRecords: catalogueProducts, rules }).kind, 'keyword');
+  assert.equal(findMatches({ input: 'jo', market: 'US', records, keywordRecords: catalogueProducts, rules }).matches[0].model, 'Jordan US Price Guide');
+});
+
 test('ambiguous one-edit keyword candidates are not guessed', () => {
   const candidates = [
     { keywords: ['chair'] },

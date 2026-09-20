@@ -51,6 +51,8 @@ The public guide catalogue is substantially broader than the verified page-level
 
 `data/matching-rules.json` contains deliberately narrow product-aware aliases and caution notes. It is not a general-purpose autocorrect list: rules that affect configuration or price are labelled **review required**, and ambiguous or distinct models are held in `review_only`. `data/acceptance-fixtures.json` records the real-world inputs supplied by the Krug team and should be expanded whenever a rule is added.
 
+Searches may also use short product-family or guide-name prefixes of two or more characters. These are displayed as possible related results, never as exact configuration matches. Exact models and curated caution rules continue to take precedence.
+
 Compact codes such as `KAR218` are accepted by the extractor only when they contain a plausible 2–7 letter family prefix plus digits and are 5–32 characters long. A one-letter family such as `V2` is accepted only when the extracted model contains a separator, which reduces false positives. Punctuation and case may be normalized for lookup, but option-bearing segments and numeric sizes are never freely corrected. In particular, Karma B/S frame-colour inputs resolve only to the base model and never to the polished-chrome C model; `JD1321N` and `JD1SS1321N` remain distinct.
 
 ## Prototype evidence

@@ -157,7 +157,9 @@ function findMatches({ input = '', market = 'all', records: modelRecords = [], k
   const keywordMatches = !plan.reviewOnly && keywords.length
     ? dedupeKeywordMatches(products.filter(item => {
       const itemKeywords = new Set((item.keywords || []).flatMap(keywordTokens));
-      return isInMarket(item, market) && keywords.every(token => itemKeywords.has(token));
+      return isInMarket(item, market) && keywords.every(token => [...itemKeywords].some(keyword =>
+        keyword === token || (token.length >= 2 && keyword.startsWith(token))
+      ));
     })) : [];
   if (keywordMatches.length) return { kind: 'keyword', query, matches: keywordMatches, plan, keywords };
 
@@ -204,7 +206,7 @@ function renderSearch(outcome, selectedMarket, status, results) {
   const count = outcome.matches.length;
   const messages = {
     exact: `${count} guide location${count === 1 ? '' : 's'} found.`, alias: `${count} guide location${count === 1 ? '' : 's'} found.`,
-    partial: `${count} partial model match${count === 1 ? '' : 'es'} found.`, family: `${count} possible model-family match${count === 1 ? '' : 'es'} found.`, keyword: `${count} product-category match${count === 1 ? '' : 'es'} found.`,
+    partial: `${count} partial model match${count === 1 ? '' : 'es'} found.`, family: `${count} possible model-family match${count === 1 ? '' : 'es'} found.`, keyword: `${count} possible product or guide match${count === 1 ? '' : 'es'} found.`,
     similar: 'No exact model found. These configurations are the closest matches.', review: 'Configuration review required.',
     none: market === 'all' ? 'No matching guide locations found.' : `No ${marketLabel} guide locations found.`
   };
@@ -217,12 +219,12 @@ function renderSearch(outcome, selectedMarket, status, results) {
     results.append(empty); return;
   }
   const group = document.createElement('div'); group.className = 'result-group';
-  const headings = { exact: 'Exact matches', alias: outcome.plan.rule?.label || 'Matched configuration', partial: 'Partial model matches', family: 'Possible model-family matches', keyword: 'Product-category matches', similar: 'Similar configurations' };
+  const headings = { exact: 'Exact matches', alias: outcome.plan.rule?.label || 'Matched configuration', partial: 'Partial model matches', family: 'Possible model-family matches', keyword: 'Possible product and guide matches', similar: 'Similar configurations' };
   appendTextElement(group, 'h2', headings[outcome.kind]);
   if (outcome.kind === 'alias' && outcome.plan.rule.note) appendTextElement(group, 'p', outcome.plan.rule.note);
   if (outcome.kind === 'partial') appendTextElement(group, 'p', 'These configurations share the full model prefix you entered. Confirm the full product key before quoting or ordering.');
   if (outcome.kind === 'family') appendTextElement(group, 'p', 'No full-prefix match was found, so these results use the shorter product-family key. Confirm the complete model number before quoting or ordering.');
-  if (outcome.kind === 'keyword') appendTextElement(group, 'p', 'Matched on the product terms you entered. Page-specific matches open at the listed page; broader category matches open the guide.');
+  if (outcome.kind === 'keyword') appendTextElement(group, 'p', 'These results include product-family and guide-name prefixes that may be related to your entry. Page-specific matches open at the listed page; broader matches open the guide.');
   if (outcome.kind === 'similar') appendTextElement(group, 'p', 'Confirm the product key before quoting or ordering.');
   outcome.matches.forEach(item => group.append(createCard(item, outcome.kind)));
   results.append(group);
